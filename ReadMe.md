@@ -1,5 +1,8 @@
 
 # DO NOT USE ONLY FOR FIXING 
+# ITS DOES NOT WORK DONT USE
+# ITS TRASH
+# I WOULD DELETE IT BUT I HAVE SOME PLANS
 
 <h1 align="left"> 📜 The Ultimate GTA V Source Code Build Guide </h1>
 
