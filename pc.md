@@ -86,7 +86,7 @@
 - If you are promoted with „Choose Default Environment Settings” Select „General Development Settings” and at „Local Help Documentation” select „None”.
 
 <div style="text-align:center;">
-  <img src="https://github.com/user-attachments/assets/7cf8399d-5817-427b-b04e-3b7c0fbbac09" alt="image" style="width:50%;" />
+<img src="IMG/03.png" alt="image" style="width:50%;">
 </div>
 
 2. Once the solution loads, open the drop down menu that says „Debug” at the top, select „Configuration Manager”
