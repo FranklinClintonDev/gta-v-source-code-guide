@@ -52,6 +52,6 @@
 1. Create a new folder called "GTA" on the Desktop or anywhere you want  
 2. Inside the "GTA" folder, create a folder called "gta5"  
 3. Copy all content from "GTAV Source" folder to "gta5"  
-4. Copy the two bat files from the [`GTA V - X Drive Batch files`](https://github.com/Redsoupdev/gta-v-source-code-guide/tree/main/GTA%20V%20-%20X%20Drive%20Batch%20files) folder to your "GTA" folder  
+4. Copy the two bat files from the [`GTA V - X Drive Batch files`](https://github.com/FranklinClintonDev/gta-v-source-code-guide/tree/main/GTA%20V%20-%20X%20Drive%20Batch%20files) folder to your "GTA" folder  
 5. Run `Connect_X_Drive.bat`  
 6. Right-click on the gta5 folder, turn off the "Read-Only" option, then press "Apply"
