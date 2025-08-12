@@ -4,13 +4,13 @@ The Grand Theft Auto V: Complete Build Guide explains how to set up, compile, an
 
 Steps for applying patches, building binaries, shaders, and scripts, with troubleshooting tips are included.
 
-### [For PC](https://github.com/Redsoupdev/gta-v-source-code-guide/blob/main/pc.md)
-### [For PS4 ](https://github.com/Redsoupdev/gta-v-source-code-guide/blob/main/ps4.md) WIP
+### [For PC](https://github.com/FranklinClintonDev/gta-v-source-code-guide/blob/main/pc.md)
+### [For PS4 ](https://github.com/FranklinClintonDev/gta-v-source-code-guide/blob/main/ps4.md) WIP
 
 ### Extras:
 
-#### - [Incredebuild Crack](https://github.com/Redsoupdev/gta-v-source-code-guide/tree/main/Extras/Incredibuild%20Crack)
-#### - [Endorphin Crack](https://github.com/Redsoupdev/gta-v-source-code-guide/tree/main/Extras/Endorphin%20Crack)
+#### - [Incredebuild Crack](https://github.com/FranklinClintonDev/gta-v-source-code-guide/tree/main/Extras/Incredibuild%20Crack)
+#### - [Endorphin Crack](https://github.com/FranklinClintonDev/gta-v-source-code-guide/tree/main/Extras/Endorphin%20Crack)
 
 ### Credits:
 
@@ -18,6 +18,7 @@ Steps for applying patches, building binaries, shaders, and scripts, with troubl
 #### PC Patches by: [Troplo](https://github.com/Troplo)
 #### PS4 Guide by: [Sorynx](https://github.com/Dbz9), [Franklin_Clinton](https://github.com/FranklinClintonDev), juniorbros, [greensci](https://github.com/greensci). 
 #### PS4 Patches, SDKs and support by [Jorby](https://github.com/coldreactor64)
+
 
 
 
