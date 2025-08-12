@@ -169,7 +169,7 @@ Optional: For multicore compilation, go to `X:\gta5\tools_ng\etc\RageShaderManag
   - Under “Visual Studio Builds” / “General” lower the “Max. number of CPU/Cores used for parallel linking”
 
 <div style="text-align:center;">
-  <img src="https://github.com/user-attachments/assets/54cdb8a6-6777-4940-b068-4f43a613de21" alt="image" style="width:50%;" />
+<img src="IMG/09.png" alt="image" style="width:50%;">
 </div>
 
 ## Building Game Scripts
