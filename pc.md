@@ -92,19 +92,19 @@
 2. Once the solution loads, open the drop down menu that says „Debug” at the top, select „Configuration Manager”
 
 <div style="text-align:center;">
-  <img src="https://github.com/user-attachments/assets/cb4017bf-7ab8-4265-8ef0-c1b8ffe3ad79" alt="image" style="width:50%;" />
+<img src="IMG/04.png" alt="image" style="width:50%;">
 </div>
 
 3. Change „Active Solution Platform” to „x64” and „Active Solution Configuration” to “BankRelease” then close the configuration window.
 
 <div style="text-align:center;">
-  <img src="https://github.com/user-attachments/assets/5f616316-b337-43e7-aef7-e800585bd4e7" alt="image" style="width:50%;" />
+<img src="IMG/05.png" alt="image" style="width:50%;">
 </div>
 
 4. Hold Ctrl key and select all projects under „GameLibs”, „Rage” and „game” folder, right-click and select „Properties”.
 
 <div style="text-align:center;">
-  <img src="https://github.com/user-attachments/assets/4237343f-6333-4b45-a044-34cf40e6e488" alt="image" style="width:35%;" />
+<img src="IMG/06.png" alt="image" style="width:50%;">
 </div>
 
 5. In the „Configuration” drop down, select „All Configurations”.
@@ -114,13 +114,13 @@
    - If you get the error „C1060: Compiler is out of heap space” during build, turn off „Multiprocessor Compilation”.
 
 <div style="text-align:center;">
-  <img src="https://github.com/user-attachments/assets/d61638a7-c92d-49d3-b11e-d586dd045222" alt="image" style="width:50%;" />
+<img src="IMG/07.png" alt="image" style="width:50%;">
 </div>
 
 6. At the top of the window, select „Build > Build Solution” and wait for build to finish.
 
 <div style="text-align:center;">
-  <img src="https://github.com/user-attachments/assets/46742b22-2c16-4646-bddd-974a4f0de88d" alt="image" style="width:50%;" />
+<img src="IMG/08.png" alt="image" style="width:50%;">
 </div>
 
 ## Patch the Game
