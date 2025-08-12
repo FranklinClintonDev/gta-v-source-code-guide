@@ -1,0 +1,52 @@
+diff --git a/game/pickups/Data/PickupData.h b/game/pickups/Data/PickupData.h
+index f6d78aec..583d8023 100644
+--- a/game/pickups/Data/PickupData.h
++++ b/game/pickups/Data/PickupData.h
+@@ -29,7 +29,7 @@ public:
+ 	FW_REGISTER_CLASS_POOL(CPickupData);
+ 
+ 	// The maximum pickup types we can allocate
+-	static const s32 MAX_STORAGE = 165;
++	static const s32 MAX_STORAGE = 2000;
+ 
+ 	CPickupData() : 
+ 		Model((u32)0), RegenerationTime(10.0f), CollectionRadius(10.0f), 
+diff --git a/game/weapons/components/WeaponComponent.h b/game/weapons/components/WeaponComponent.h
+index 47e63cfc..73a46dd9 100644
+--- a/game/weapons/components/WeaponComponent.h
++++ b/game/weapons/components/WeaponComponent.h
+@@ -55,7 +55,7 @@ public:
+ 	FW_REGISTER_CLASS_POOL(CWeaponComponentInfo);
+ 
+ 	// The maximum infos we can allocate
+-	static const s32 MAX_STORAGE = 425;
++	static const s32 MAX_STORAGE = 2000;
+ 
+ 	CWeaponComponentInfo();
+ 	virtual ~CWeaponComponentInfo();
+diff --git a/game/weapons/components/weaponcomponentparser.psc b/game/weapons/components/weaponcomponentparser.psc
+index e4b849d9..63bcf9d9 100644
+--- a/game/weapons/components/weaponcomponentparser.psc
++++ b/game/weapons/components/weaponcomponentparser.psc
+@@ -160,7 +160,7 @@
+         </array>
+     </structdef>
+ 
+-	<const name="CWeaponComponentInfo::MAX_STORAGE" value="425"/>
++	<const name="CWeaponComponentInfo::MAX_STORAGE" value="2000"/>
+ 	
+     <structdef type="CWeaponComponentInfoBlob">
+         <array name="m_Data" type="atArray">
+diff --git a/game/weapons/info/WeaponInfoManager.cpp b/game/weapons/info/WeaponInfoManager.cpp
+index 749edf14..754ae4f1 100644
+--- a/game/weapons/info/WeaponInfoManager.cpp
++++ b/game/weapons/info/WeaponInfoManager.cpp
+@@ -29,7 +29,7 @@
+ WEAPON_OPTIMISATIONS()
+ 
+ // Max number of weapon blobs (number of individual files)
+-#define MAX_WEAPON_INFO_BLOBS		(140)
++#define MAX_WEAPON_INFO_BLOBS		(2000)
+ 
+ //////////////////////////////////////////////////////////////////////////
+ // CWeaponInfoManager
