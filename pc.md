@@ -1,4 +1,4 @@
-<img src="IMG/01.png" alt="image" style="width:50%;">
+<img src="IMG/01.png" alt="image" style="width:10%;">
 
 # Grand Theft Auto V: Source Code Build Guide *For PC*
 
