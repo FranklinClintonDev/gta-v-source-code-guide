@@ -52,13 +52,13 @@
 1. Create a new folder called "GTA" on the Desktop or anywhere you want  
 2. Inside the "GTA" folder, create a folder called "gta5"  
 3. Copy all content from "GTAV Source" folder to "gta5"  
-4. Copy the two bat files from the [`GTA V - X Drive Batch files`](https://github.com/Redsoupdev/gta-v-source-code-guide/tree/main/GTA%20V%20-%20X%20Drive%20Batch%20files) folder to your "GTA" folder  
+4. Copy the two bat files from the [`GTA V - X Drive Batch files`](https://github.com/FranklinClintonDev/gta-v-source-code-guide/tree/main/GTA%20V%20-%20X%20Drive%20Batch%20files) folder to your "GTA" folder  
 5. Run `Connect_X_Drive.bat`  
 6. Right-click on the gta5 folder, turn off the "Read-Only" option, then press "Apply"
 
 ## Patching Source Code and Tools
 
-1. Add all files from [`GTA V - Source Code Patches/patches`](https://github.com/Redsoupdev/gta-v-source-code-guide/tree/main/GTA%20V%20-%20Source%20Code%20Patches/patches) to `X:\gta5\src\dev_ng`  
+1. Add all files from [`GTA V - Source Code Patches/patches`](https://github.com/FranklinClintonDev/gta-v-source-code-guide/tree/main/GTA%20V%20-%20Source%20Code%20Patches/patches) to `X:\gta5\src\dev_ng`  
 2. Choose if you want  
    - `patch_source_v2699.bat` RECOMMENDED – Standard version 2699 build, fully compatible with scripts.  
    - Or `patch_source_RETAIL_ONLY_v3407-3521.bat` Use this for a retail-like build (supports game versions 3407 to 3521, and possibly some later versions). NOTE: This version does NOT support scripts or debugging tools.  
@@ -67,7 +67,7 @@
    - If you change your mind later, you will need to delete your current source code copy and set up a new one.  
 4. Run `X:\gta5\src\dev_ng\All_In_One_Install_Environment_Variables.bat`  
 5. Run `X:\gta5\src\dev_ng\setenv.bat`
-6. Copy all folders from [`dll_patches_x.zip`](https://github.com/Redsoupdev/gta-v-source-code-guide/tree/main/GTA%20V%20-%20Source%20Code%20Patches/tools%20patch) to `X:\gta5\tools_ng\bin`, ensuring you overwrite existing files.
+6. Copy all folders from [`dll_patches_x.zip`](https://github.com/FranklinClintonDev/gta-v-source-code-guide/tree/main/GTA%20V%20-%20Source%20Code%20Patches/tools%20patch) to `X:\gta5\tools_ng\bin`, ensuring you overwrite existing files.
 
 ## Building Game Binaries/Executable
 
@@ -146,7 +146,7 @@ The game needs to be modified slightly to run the compiled build, as mentioned a
 
 ## Getting Cracked Copies Work 
 
-- Go to [`cracked_game_patch`](https://github.com/Redsoupdev/gta-v-source-code-guide/tree/main/GTA%20V%20-%20Source%20Code%20Patches/cracked_game_patch) folder  
+- Go to [`cracked_game_patch`](https://github.com/FranklinClintonDev/gta-v-source-code-guide/tree/main/GTA%20V%20-%20Source%20Code%20Patches/cracked_game_patch) folder  
 - Copy everything inside of it to your game folder.
 
 ## Building Shaders
@@ -191,11 +191,11 @@ ragScriptEditor
 6. Open `<Game Directory>\update\update2.rpf\x64\levels\gta5\script` 
 7. Delete `script.rpf`
 8. Click the „Edit mode" button, and copy `X:\gta5\titleupdate\dev_ng\x64\levels\gta5\script\script.rpf` to the OpenIV window.
-9. Get [ArchiveFix](https://github.com/Redsoupdev/gta-v-source-code-guide/tree/main/GTA%20V%20-%20Archive%20Fix). Then drag and drop the edited rpf on „ArchiveFix.exe”.
+9. Get [ArchiveFix](https://github.com/FranklinClintonDev/gta-v-source-code-guide/tree/main/GTA%20V%20-%20Archive%20Fix). Then drag and drop the edited rpf on „ArchiveFix.exe”.
 
 ## Running the game
 You need a `.bat` file to launch the game. This batch file is only required for v2699 Build and is optional for Retail Only v3407-3521 Build
- - The file is used to set [launch parameters](https://github.com/Redsoupdev/gta-v-source-code-guide/blob/main/GTA%20V%20-%20Source%20Code%20Build%20Controls/Source%20Code%20Build%20Lauch%20Parameters/LAUNCHPARAMS_GTAV.txt).
+ - The file is used to set [launch parameters](https://github.com/FranklinClintonDev/gta-v-source-code-guide/blob/main/GTA%20V%20-%20Source%20Code%20Build%20Controls/Source%20Code%20Build%20Lauch%20Parameters/LAUNCHPARAMS_GTAV.txt).
 1.In the game directory, create a `.bat` and add these contents:
 
 ```batch
@@ -214,7 +214,7 @@ EXENAME.exe -noSocialClub -nokeyboardhook -nonetlogs
 
 #### Update your batch file
 1. Navigate to your game directory.
-2. Edit your `.bat` file you crated on [this step](https://github.com/Redsoupdev/gta-v-source-code-guide?tab=readme-ov-file#building-game-scripts).
+2. Edit your `.bat` file you crated on [this step](https://github.com/FranklinClintonDev/gta-v-source-code-guide?tab=readme-ov-file#building-game-scripts).
 3. Add the -rag and -ragUseOwnWindow parameter
 
 It should be like this now:
