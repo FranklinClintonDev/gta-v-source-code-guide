@@ -76,7 +76,7 @@
 1. Run `X:\gta5\src\dev_ng\game\VS_Project\load_sln_unity_2012.bat`
 
 <div style="text-align:center;">
-<img src="IMG/01.png" alt="image" style="width:50%;">
+<img src="IMG/01.png" alt="image" style="width:25%;">
 </div>
 
 - A warning will show in the Command Prompt Window stating you are missing an SDK, please ignore it and press any key to continue and open it with Visual Studio 2012.
