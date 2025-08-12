@@ -82,7 +82,7 @@
 - A warning will show in the Command Prompt Window stating you are missing an SDK, please ignore it and press any key to continue and open it with Visual Studio 2012.
 
 <div style="text-align:center;">
-  <img src="https://github.com/user-attachments/assets/c3e47041-80e0-4d0e-9ea9-4486162352d3" alt="image" style="width:50%;" />
+<img src="IMG/02.png" alt="image" style="width:30%;">
 </div>
 
 - If you are promoted with „Choose Default Environment Settings” Select „General Development Settings” and at „Local Help Documentation” select „None”.
