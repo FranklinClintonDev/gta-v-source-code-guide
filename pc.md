@@ -9,7 +9,7 @@
    - Password: `Mi76#b>9mRed`
 - [7-Zip](https://www.7-zip.org/)
 - [GTA V Source Code Toolset](https://pixeldrain.com/u/2XdabBq3)
-- [GTA V - PC 2699 Update RPF files](https://pixeldrain.com/u/donYCsxq) (For full debug support)
+- [GTA V - PC 2699 Update RPF files](https://pixeldrain.com/u/donYCsxq) (For full debug and script support)
   - Or [with Pre Build Scripts](https://pixeldrain.com/u/MMsym3kN) if you dont want to build them
 - Optional are also [Pre Build Shaders](https://pixeldrain.com/u/vAvUVD8B)
 
