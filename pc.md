@@ -1,4 +1,4 @@
-(IMG/01.png)
+<img src="IMG/01.png" alt="image" style="width:50%;">
 
 # Grand Theft Auto V: Source Code Build Guide *For PC*
 
