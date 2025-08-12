@@ -214,7 +214,7 @@ EXENAME.exe -noSocialClub -nokeyboardhook -nonetlogs
 
 #### Update your batch file
 1. Navigate to your game directory.
-2. Edit your `.bat` file you crated on [this step](https://github.com/FranklinClintonDev/gta-v-source-code-guide?tab=readme-ov-file#building-game-scripts).
+2. Edit your `.bat` file you crated on [this step](#building-game-scripts).
 3. Add the -rag and -ragUseOwnWindow parameter
 
 It should be like this now:
