@@ -1,5 +1,3 @@
-<img src="IMG/01.png" alt="image" style="width:10%;">
-
 # Grand Theft Auto V: Source Code Build Guide *For PC*
 
 ## Requirements
@@ -82,7 +80,7 @@
 - A warning will show in the Command Prompt Window stating you are missing an SDK, please ignore it and press any key to continue and open it with Visual Studio 2012.
 
 <div style="text-align:center;">
-<img src="IMG/02.png" alt="image" style="width:30%;">
+<img src="IMG/02.png" alt="image" style="width:50%;">
 </div>
 
 - If you are promoted with „Choose Default Environment Settings” Select „General Development Settings” and at „Local Help Documentation” select „None”.
