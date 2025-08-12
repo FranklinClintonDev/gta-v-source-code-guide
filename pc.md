@@ -114,7 +114,7 @@
    - If you get the error „C1060: Compiler is out of heap space” during build, turn off „Multiprocessor Compilation”.
 
 <div style="text-align:center;">
-<img src="IMG/07.png" alt="image" style="width:50%;">
+<img src="IMG/07.png" alt="image" style="width:35%;">
 </div>
 
 6. At the top of the window, select „Build > Build Solution” and wait for build to finish.
