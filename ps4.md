@@ -47,6 +47,10 @@
    - Don't change the port
    - For path, just select any empty folder
 
+## Setup Visual Stuido 2017
+
+
+
 ## Creating X:\ Drive
 
 1. Create a new folder called "GTA" on the Desktop or anywhere you want  
