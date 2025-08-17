@@ -16,10 +16,11 @@ Steps for applying patches, building binaries, shaders, and scripts, with troubl
 
 #### PC Guide by: [YungDoom](https://github.com/yungDoom) and [Franklin_Clinton](https://github.com/FranklinClintonDev).
 #### PC Patches by: [Troplo](https://github.com/Troplo)
-#### PS4 Guide by: [Sorynx](https://github.com/Dbz9), [Franklin_Clinton](https://github.com/FranklinClintonDev), juniorbros, [greensci](https://github.com/greensci). 
+#### PS4 Guide by: [Sorynx](https://github.com/Dbz9), [Franklin_Clinton](https://github.com/FranklinClintonDev), juniorbros, Mojso, [greensci](https://github.com/greensci). 
 #### PS4 Patches, SDKs and support by [Jorby](https://github.com/coldreactor64)
 
 ### If you need any help feel free to ask in our discord server https://discord.gg/YaqC9aqrsx
+
 
 
 
