@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Rockstar Games Studio Data
+  This file contains data per-studio that is used across our tool chain.
+  
+  This file is safe to integrate across tools branches.
+-->
+<StudioFile>
+  <Studios>
+    <Item type="Studio">
+      <Key>north</Key>
+      <FriendlyName>R* North</FriendlyName>
+      <SubnetMask>192.168.163.132</SubnetMask>
+      <Domain>rockstarnorth.com</Domain>
+      <PerforceServer>DevDesk11:1666</PerforceServer>
+      <PerforceMocapServer/>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>RockstarDev</PerforceSwarmServer>
+      <NetworkDrive>X:\RSGDND</NetworkDrive>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp.rockstar.t2.corp</ExchangeServer>
+      <AutomatedUsername>buildernorth</AutomatedUsername>
+      <AutomatedFriendlyName>Builder North</AutomatedFriendlyName>
+      <TimeZoneId>GMT Standard Time</TimeZoneId>
+    </Item>
+    <Item type="Studio">
+      <Key>toronto</Key>
+      <FriendlyName>R* Toronto</FriendlyName>
+      <SubnetMask>192.168.163.132</SubnetMask>
+      <Domain>rockstartoronto.com</Domain>
+      <PerforceServer>DevDesk11:1666</PerforceServer>
+      <PerforceMocapServer/>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>RockstarDev</PerforceSwarmServer>
+      <NetworkDrive>X:\RSGDND</NetworkDrive>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp-na.rockstar.t2.corp</ExchangeServer>
+      <TimeZoneId>Eastern Standard Time</TimeZoneId>
+    </Item>
+    <!--<Item type="Studio">
+      <Key>newyork</Key>
+      <FriendlyName>R* New York</FriendlyName>
+      <SubnetMask>10.1.0.0/16</SubnetMask>
+      <Domain>rockstarnewyork.com</Domain>
+      <PerforceServer>rsgperforce:1666</PerforceServer>
+      <PerforceMocapServer>rsgperforce:1777</PerforceMocapServer>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive>N:\RSGNYC</NetworkDrive>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp-na.rockstar.t2.corp</ExchangeServer>
+      <AutomatedUsername>svcrsgautoaitparit</AutomatedUsername>
+      <AutomatedFriendlyName>Builder NYC</AutomatedFriendlyName>	  
+      <TimeZoneId>Eastern Standard Time</TimeZoneId>
+    </Item>
+    <Item type="Studio">
+      <Key>sandiego</Key>
+      <FriendlyName>R* San Diego</FriendlyName>
+      <SubnetMask>10.0.0.0/16</SubnetMask>
+      <Domain>rockstarsandiego.com</Domain>
+      <PerforceServer>rsgperforce:1666</PerforceServer>
+      <PerforceMocapServer/>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive>N:\RSGSAN</NetworkDrive>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp-na.rockstar.t2.corp</ExchangeServer>
+      <AutomatedUsername>svcrsgsanvmbuilder</AutomatedUsername>
+      <AutomatedFriendlyName>Builder San Diego</AutomatedFriendlyName>
+      <TimeZoneId>Pacific Standard Time</TimeZoneId>
+    </Item>
+    <Item type="Studio">
+      <Key>newengland</Key>
+      <FriendlyName>R* New England</FriendlyName>
+      <SubnetMask>10.24.0.0/16</SubnetMask>
+      <Domain>rockstarnewengland.com</Domain>
+      <PerforceServer>rsgperforce:1666</PerforceServer>
+      <PerforceMocapServer/>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive>N:\RSGNWE</NetworkDrive>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp-na.rockstar.t2.corp</ExchangeServer>
+      <TimeZoneId>Eastern Standard Time</TimeZoneId>
+    </Item>
+    <Item type="Studio">
+      <Key>london</Key>
+      <FriendlyName>R* London</FriendlyName>
+      <SubnetMask>10.39.0.0/16</SubnetMask>
+      <Domain>rockstarlondon.com</Domain>
+      <PerforceServer>rsgperforce:1666</PerforceServer>
+      <PerforceMocapServer/>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive>N:\RSGLDN</NetworkDrive>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp.rockstar.t2.corp</ExchangeServer>
+      <AutomatedUsername>svcrsgldnexporter</AutomatedUsername>
+      <AutomatedFriendlyName>Builder London</AutomatedFriendlyName>
+      <TimeZoneId>GMT Standard Time</TimeZoneId>
+    </Item>
+    <Item type="Studio">
+      <Key>lincoln</Key>
+      <FriendlyName>R* Lincoln</FriendlyName>
+      <SubnetMask>10.12.0.0/16</SubnetMask>
+      <Domain>rockstarlincoln.com</Domain>
+      <PerforceServer>rsgperforce:1666</PerforceServer>
+      <PerforceMocapServer/>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive>N:\RSGLIN</NetworkDrive>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp.rockstar.t2.corp</ExchangeServer>
+      <TimeZoneId>GMT Standard Time</TimeZoneId>
+    </Item>
+    <Item type="Studio">
+      <Key>lincolnJubilee</Key>
+      <FriendlyName>R* Lincoln (Jubilee House)</FriendlyName>
+      <SubnetMask>10.4.0.0/16</SubnetMask>
+      <Domain>rockstarlincoln.com</Domain>
+      <PerforceServer>rsgperforce:1666</PerforceServer>
+      <PerforceMocapServer/>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive>N:\RSGLIN</NetworkDrive>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp.rockstar.t2.corp</ExchangeServer>
+      <TimeZoneId>GMT Standard Time</TimeZoneId>
+    </Item>
+    <Item type="Studio">
+      <Key>leeds</Key>
+      <FriendlyName>R* Leeds</FriendlyName>
+      <SubnetMask>10.40.0.0/16</SubnetMask>
+      <Domain>rockstarleeds.com</Domain>
+      <PerforceServer>rsgperforce:1666</PerforceServer>
+      <PerforceMocapServer/>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive>N:\RSGLDS</NetworkDrive>
+      <ExchangeServer>smtp.rockstar.t2.corp</ExchangeServer>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <AutomatedUsername>rsgldsprop</AutomatedUsername>
+      <AutomatedFriendlyName>Builder Leeds</AutomatedFriendlyName>
+      <TimeZoneId>GMT Standard Time</TimeZoneId>
+    </Item>
+    <Item type="Studio">
+      <Key>glencove</Key>
+      <FriendlyName>R* Glencove</FriendlyName>
+      <SubnetMask>10.36.0.0/16</SubnetMask>
+      <Domain>rockstarleeds.com</Domain>
+      <PerforceServer/>
+      <PerforceMocapServer>rsgperforce:1777</PerforceMocapServer>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive>N:\RSGLIC</NetworkDrive>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp-na.rockstar.t2.corp</ExchangeServer>
+      <TimeZoneId>Eastern Standard Time</TimeZoneId>
+    </Item>
+    <Item type="Studio">
+      <Key>technicolor</Key>
+      <FriendlyName>Technicolor</FriendlyName>
+      <SubnetMask>10.242.0.0/16</SubnetMask>
+      <Domain>technicolor.com</Domain>
+      <PerforceServer>rsgrdup4p1:1666</PerforceServer>
+      <PerforceMocapServer/>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive>N:\TECHNICOLOR</NetworkDrive>
+      <ActiveDirectoryDomain>PISDOMAIN</ActiveDirectoryDomain>
+      <ExchangeServer/>
+      <TimeZoneId>India Standard Time</TimeZoneId>
+    </Item>
+    <Item type="Studio">
+      <Key>bethpage</Key>
+      <FriendlyName>R* Bethpage</FriendlyName>
+      <AbbreviatedName>RSGLIC</AbbreviatedName>
+      <SubnetMask>10.41.0.0/16</SubnetMask>
+      <Domain>rockstargames.com</Domain>
+      <PerforceServer>rsgperforce:1666</PerforceServer>
+      <PerforceMocapServer>rsgperforce:1777</PerforceMocapServer>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive>N:\RSGLIC</NetworkDrive>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp-na.rockstar.t2.corp</ExchangeServer>
+      <TimeZoneId>Eastern Standard Time</TimeZoneId>
+      <BugstarId>19</BugstarId>
+    </Item>
+    <Item type="Studio">
+      <Key>india</Key>
+      <FriendlyName>R* India</FriendlyName>
+      <SubnetMask>10.42.0.0/16</SubnetMask>
+      <Domain>rockstarindia.com</Domain>
+      <PerforceServer>rsgperforce:1666</PerforceServer>
+      <PerforceMocapServer/>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive>N:\RSGIND</NetworkDrive>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp.rockstar.t2.corp</ExchangeServer>
+      <TimeZoneId>India Standard Time</TimeZoneId>
+    </Item>
+    <Item type="Studio">
+      <Key>newark</Key>
+      <FriendlyName>R* ADC Data Datacenter</FriendlyName>
+      <AbbreviatedName>RSGADC</AbbreviatedName>
+	  <SubnetMask>10.191.0.0/16</SubnetMask>
+      <Domain>rockstargames.com</Domain>
+      <PerforceServer>rsgperforce:1666</PerforceServer>
+      <PerforceMocapServer>rsgperforce:1777</PerforceMocapServer>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive>N:\RSGADC</NetworkDrive>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp-na.rockstar.t2.corp</ExchangeServer>
+      <AutomatedUsername>svcrsgautoaitparit</AutomatedUsername>
+      <AutomatedFriendlyName>Builder ADC</AutomatedFriendlyName>	 
+      <TimeZoneId>Eastern Standard Time</TimeZoneId>
+      <BugstarId>19</BugstarId>
+    </Item>
+    <Item type="Studio">
+      <Key>newark2</Key>
+      <FriendlyName>R* ADC Data Datacenter #2</FriendlyName>
+      <AbbreviatedName>RSGADC</AbbreviatedName>
+      <SubnetMask>10.171.0.0/16</SubnetMask>
+      <Domain>rockstargames.com</Domain>
+      <PerforceServer>rsgperforce:1666</PerforceServer>
+      <PerforceMocapServer>rsgperforce:1777</PerforceMocapServer>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive>N:\RSGADC</NetworkDrive>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp-na.rockstar.t2.corp</ExchangeServer>
+      <TimeZoneId>Eastern Standard Time</TimeZoneId>
+      <BugstarId>19</BugstarId>
+    </Item>
+	<Item type="Studio">
+      <Key>newark3</Key>
+      <FriendlyName>R* ADC Data Datacenter #3</FriendlyName>
+      <AbbreviatedName>RSGADC</AbbreviatedName>
+      <SubnetMask>10.128.12.0/22</SubnetMask>
+      <Domain>rockstargames.com</Domain>
+      <PerforceServer>rsgperforce:1666</PerforceServer>
+      <PerforceMocapServer>rsgperforce:1777</PerforceMocapServer>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive>N:\RSGADC</NetworkDrive>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp-na.rockstar.t2.corp</ExchangeServer>
+      <TimeZoneId>Eastern Standard Time</TimeZoneId>
+      <BugstarId>19</BugstarId>
+    </Item>
+    <Item type="Studio">
+      <Key>slough</Key>
+      <FriendlyName>R* EDC Data Datacenter</FriendlyName>
+      <AbbreviatedName>RSGEDC</AbbreviatedName>
+	  <SubnetMask>10.181.0.0/16</SubnetMask>
+      <Domain>rockstargames.com</Domain>
+      <PerforceServer>rsgperforce:1666</PerforceServer>
+      <PerforceMocapServer>rsgperforce:1777</PerforceMocapServer>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive>N:\RSGEDC</NetworkDrive>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp-na.rockstar.t2.corp</ExchangeServer>
+      <TimeZoneId>GMT Standard Time</TimeZoneId>
+      <BugstarId>19</BugstarId>
+    </Item>
+	<Item type="Studio">
+      <Key>slough2</Key>
+      <FriendlyName>R* EDC Data Datacenter #2</FriendlyName>
+      <AbbreviatedName>RSGEDC</AbbreviatedName>
+	  <SubnetMask>10.128.28.0/22</SubnetMask>
+      <Domain>rockstargames.com</Domain>
+      <PerforceServer>rsgperforce:1666</PerforceServer>
+      <PerforceMocapServer>rsgperforce:1777</PerforceMocapServer>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive>N:\RSGEDC</NetworkDrive>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp-na.rockstar.t2.corp</ExchangeServer>
+      <TimeZoneId>GMT Standard Time</TimeZoneId>
+      <BugstarId>19</BugstarId>
+    </Item>
+	<Item type="Studio">
+      <Key>SV4</Key>
+      <FriendlyName>R* SV4 Datacenter</FriendlyName>
+      <SubnetMask>10.128.44.0/22</SubnetMask>
+      <Domain>rockstarsandiego.com</Domain>
+      <PerforceServer>rsgperforce:1666</PerforceServer>
+      <PerforceMocapServer/>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive>N:\RSGSAN</NetworkDrive>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp-na.rockstar.t2.corp</ExchangeServer>
+      <AutomatedUsername>svcrsgsanvmbuilder</AutomatedUsername>
+      <AutomatedFriendlyName>Builder San Diego</AutomatedFriendlyName>
+      <TimeZoneId>Pacific Standard Time</TimeZoneId>
+    </Item>
+    <Item type="Studio">
+      <Key>dundee</Key>
+      <FriendlyName>R* Dundee</FriendlyName>
+      <AbbreviatedName>RSGDND</AbbreviatedName>
+      <SubnetMask>10.107.32.0/20</SubnetMask>
+      <Domain>rockstargames.com</Domain>
+      <PerforceServer>rsgperforce:1666</PerforceServer>
+      <PerforceMocapServer>rsgperforce:1777</PerforceMocapServer>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive/>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp-na.rockstar.t2.corp</ExchangeServer>
+      <TimeZoneId>GMT Standard Time</TimeZoneId>
+    </Item>
+    <Item type="Studio">
+      <Key>meraki</Key>
+      <FriendlyName>R* Home Office</FriendlyName>
+      <AbbreviatedName>RSGSHO</AbbreviatedName>
+      <SubnetMask>10.127.0.0/16</SubnetMask>
+      <Domain>rockstargames.com</Domain>
+      <PerforceServer>rsgperforce:1666</PerforceServer>
+      <PerforceMocapServer>rsgperforce:1777</PerforceMocapServer>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive/>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp-na.rockstar.t2.corp</ExchangeServer>
+      <TimeZoneId>Eastern Standard Time</TimeZoneId>
+    </Item>-->
+    
+    <!-- 3x VPN On-Demand Subnets -->
+    <!--<Item type="Studio">
+      <Key>vpndemand1</Key>
+      <FriendlyName>VPN On-Demand 1</FriendlyName>
+      <AbbreviatedName>VPNONDEM1</AbbreviatedName>
+      <SubnetMask>10.169.32.0/21</SubnetMask>
+      <Domain>rockstargames.com</Domain>
+      <PerforceServer>rsgperforce:1666</PerforceServer>
+      <PerforceMocapServer>rsgperforce:1777</PerforceMocapServer>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive/>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp-na.rockstar.t2.corp</ExchangeServer>
+      <TimeZoneId>Pacific Standard Time</TimeZoneId>
+    </Item>
+    <Item type="Studio">
+      <Key>vpndemand2</Key>
+      <FriendlyName>VPN On-Demand 2</FriendlyName>
+      <AbbreviatedName>VPNONDEM2</AbbreviatedName>
+      <SubnetMask>10.179.32.0/21</SubnetMask>
+      <Domain>rockstargames.com</Domain>
+      <PerforceServer>rsgperforce:1666</PerforceServer>
+      <PerforceMocapServer>rsgperforce:1777</PerforceMocapServer>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive/>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp-na.rockstar.t2.corp</ExchangeServer>
+      <TimeZoneId>Eastern Standard Time</TimeZoneId>
+    </Item>
+    <Item type="Studio">
+      <Key>vpndemand3</Key>
+      <FriendlyName>VPN On-Demand 3</FriendlyName>
+      <AbbreviatedName>VPNONDEM3</AbbreviatedName>
+      <SubnetMask>10.189.32.0/21</SubnetMask>
+      <Domain>rockstargames.com</Domain>
+      <PerforceServer>rsgperforce:1666</PerforceServer>
+      <PerforceMocapServer>rsgperforce:1777</PerforceMocapServer>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive/>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp-na.rockstar.t2.corp</ExchangeServer>
+      <TimeZoneId>GMT Standard Time</TimeZoneId>
+    </Item>
+    <Item type="Studio">
+      <Key>vpndemand4</Key>
+      <FriendlyName>VPN On-Demand 4</FriendlyName>
+      <AbbreviatedName>VPNONDEM4</AbbreviatedName>
+      <SubnetMask>10.42.125.0/24</SubnetMask>
+      <Domain>rockstargames.com</Domain>
+      <PerforceServer>rsgperforce:1666</PerforceServer>
+      <PerforceMocapServer>rsgperforce:1777</PerforceMocapServer>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive/>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp-na.rockstar.t2.corp</ExchangeServer>
+      <TimeZoneId>India Standard Time</TimeZoneId>
+    </Item>-->
+    
+    <!-- 3x VPN Always-On Subnets -->
+    <!--<Item type="Studio">
+      <Key>vpnalways1</Key>
+      <FriendlyName>VPN Always-On 1</FriendlyName>
+      <AbbreviatedName>VPNALWAYS1</AbbreviatedName>
+      <SubnetMask>10.169.48.0/21</SubnetMask>
+      <Domain>rockstargames.com</Domain>
+      <PerforceServer>rsgperforce:1666</PerforceServer>
+      <PerforceMocapServer>rsgperforce:1777</PerforceMocapServer>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive/>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp-na.rockstar.t2.corp</ExchangeServer>
+      <TimeZoneId>Pacific Standard Time</TimeZoneId>
+    </Item>
+    <Item type="Studio">
+      <Key>vpnalways2</Key>
+      <FriendlyName>VPN Always-On 2</FriendlyName>
+      <AbbreviatedName>VPNALWAYS2</AbbreviatedName>
+      <SubnetMask>10.179.48.0/21</SubnetMask>
+      <Domain>rockstargames.com</Domain>
+      <PerforceServer>rsgperforce:1666</PerforceServer>
+      <PerforceMocapServer>rsgperforce:1777</PerforceMocapServer>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive/>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp-na.rockstar.t2.corp</ExchangeServer>
+      <TimeZoneId>Eastern Standard Time</TimeZoneId>
+    </Item>
+    <Item type="Studio">
+      <Key>vpnalways3</Key>
+      <FriendlyName>VPN Always-On 3</FriendlyName>
+      <AbbreviatedName>VPNALWAYS3</AbbreviatedName>
+      <SubnetMask>10.189.48.0/21</SubnetMask>
+      <Domain>rockstargames.com</Domain>
+      <PerforceServer>rsgperforce:1666</PerforceServer>
+      <PerforceMocapServer>rsgperforce:1777</PerforceMocapServer>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive/>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp-na.rockstar.t2.corp</ExchangeServer>
+      <TimeZoneId>GMT Standard Time</TimeZoneId>
+    </Item>
+    <Item type="Studio">
+      <Key>vpnalways4</Key>
+      <FriendlyName>VPN Always-On 4</FriendlyName>
+      <AbbreviatedName>VPNALWAYS4</AbbreviatedName>
+      <SubnetMask>10.42.126.0/24</SubnetMask>
+      <Domain>rockstargames.com</Domain>
+      <PerforceServer>rsgperforce:1666</PerforceServer>
+      <PerforceMocapServer>rsgperforce:1777</PerforceMocapServer>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive/>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp-na.rockstar.t2.corp</ExchangeServer>
+      <TimeZoneId>India Standard Time</TimeZoneId>
+    </Item>
+	<Item type="Studio">
+      <Key>vpnalways5</Key>
+      <FriendlyName>VPN Always-On 5</FriendlyName>
+      <AbbreviatedName>VPNALWAYS5</AbbreviatedName>
+      <SubnetMask>10.189.232.0/22</SubnetMask>
+      <Domain>rockstargames.com</Domain>
+      <PerforceServer>rsgperforce:1666</PerforceServer>
+      <PerforceMocapServer>rsgperforce:1777</PerforceMocapServer>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive/>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp-na.rockstar.t2.corp</ExchangeServer>
+      <TimeZoneId>GMT Standard Time</TimeZoneId>
+    </Item>-->
+    
+    <!-- Meraki VPN -->
+    <!--<Item type="Studio">
+      <Key>vpnmeraki</Key>
+      <FriendlyName>Meraki VPN</FriendlyName>
+      <AbbreviatedName>MERAKIVPN</AbbreviatedName>
+      <SubnetMask>10.127.0.0/16</SubnetMask>
+      <Domain>rockstargames.com</Domain>
+      <PerforceServer>rsgperforce:1666</PerforceServer>
+      <PerforceMocapServer>rsgperforce:1777</PerforceMocapServer>
+      <PerforceWebServer/>
+      <PerforceSwarmServer>rsgedip4r1</PerforceSwarmServer>
+      <NetworkDrive/>
+      <ActiveDirectoryDomain>ROCKSTAR</ActiveDirectoryDomain>
+      <ExchangeServer>smtp-na.rockstar.t2.corp</ExchangeServer>
+      <TimeZoneId>Universal Standard Time</TimeZoneId>--> <!-- User Dependent -->
+    <!--</Item>-->
+  </Studios>
+</StudioFile>

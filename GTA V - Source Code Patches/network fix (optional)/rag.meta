@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Rag Configuration data.
+  This file contains known source IPs that are ignored by RAG when encountering data on the new game connection port.
+  
+  This file is safe to integrate across tools branches.
+-->
+<RagConfiguration>
+  <IgnoredConnectionSources>
+      <Item type="ConnectionSource">
+      <Name>rsgtornsc2</Name>
+      <IPAddress>PUT-IP-HERE</IPAddress>
+    </Item>
+	<Item type="ConnectionSource">
+		<Name>rsgtornsc3.rockstar.t2.corp</Name>
+		<IPAddress>PUT-IP-HERE</IPAddress>
+	</Item>
+    <Item type="ConnectionSource">
+      <Name>rsgnwensc2</Name>
+      <IPAddress>PUT-IP-HERE</IPAddress>
+    </Item>
+	<Item type="ConnectionSource">
+		<Name>rsgnwensc3.rockstar.t2.corp</Name>
+		<IPAddress>PUT-IP-HERE</IPAddress>
+	</Item>
+    <!--<Item type="ConnectionSource">
+      <Name>Nessus ADC</Name>
+      <IPAddress>10.70.255.23</IPAddress>
+    </Item>
+    <Item type="ConnectionSource">
+      <Name>Nessus EDC</Name>
+      <IPAddress>10.80.255.15</IPAddress>
+    </Item>
+    <Item type="ConnectionSource">
+      <Name>rsgtornsc2</Name>
+      <IPAddress>10.2.16.179</IPAddress>
+    </Item>
+    <Item type="ConnectionSource">
+      <Name>rsgsannsc2</Name>
+      <IPAddress>10.0.16.10</IPAddress>
+    </Item>
+    <Item type="ConnectionSource">
+      <Name>rsgnycnsc2</Name>
+      <IPAddress>10.1.18.43</IPAddress>
+    </Item>
+    <Item type="ConnectionSource">
+      <Name>rsgedinsc2</Name>
+      <IPAddress>10.10.18.77</IPAddress>
+    </Item>
+    <Item type="ConnectionSource">
+      <Name>rsgedinsc3</Name>
+      <IPAddress>10.10.18.167</IPAddress>
+    </Item>
+    <Item type="ConnectionSource">
+      <Name>rsgldsnsc2</Name>
+      <IPAddress>10.40.16.240</IPAddress>
+    </Item>
+    <Item type="ConnectionSource">
+      <Name>rsglinnsc2</Name>
+      <IPAddress>10.4.16.206</IPAddress>
+    </Item>
+    <Item type="ConnectionSource">
+      <Name>rsgldnnsc2</Name>
+      <IPAddress>10.39.16.36</IPAddress>
+    </Item>
+    <Item type="ConnectionSource">
+      <Name>rsgindnsc2</Name>
+      <IPAddress>10.42.16.102</IPAddress>
+    </Item>
+    <Item type="ConnectionSource">
+      <Name>rsglicnsc2</Name>
+      <IPAddress>10.41.18.49</IPAddress>
+    </Item>
+    <Item type="ConnectionSource">
+      <Name>rsgnwensc2</Name>
+      <IPAddress>10.24.18.14</IPAddress>
+    </Item>
+	<Item type="ConnectionSource">
+      <Name>tk2adcnsc6.take2.t2.corp</Name>
+      <IPAddress>10.70.21.27</IPAddress>
+    </Item>
+	<Item type="ConnectionSource">
+      <Name>tk2adcnsc2.take2.t2.corp</Name>
+      <IPAddress>10.70.20.48</IPAddress>
+    </Item>
+	<Item type="ConnectionSource">
+      <Name>tk2edcnsc3.take2.t2.corp</Name>
+      <IPAddress>10.80.20.41</IPAddress>
+    </Item>
+	<Item type="ConnectionSource">
+      <Name>tk2sv4nsc2.take2.t2.corp</Name>
+      <IPAddress>10.60.33.19</IPAddress>
+    </Item>
+    <Item type="ConnectionSource">
+      <Name>rsgdndnsc1.rockstar.t2.corp</Name>
+      <IPAddress>10.107.18.24</IPAddress>
+    </Item>
+	<Item type="ConnectionSource">
+      <Name>tenable-gwo136j7.rockstar.t2.corp</Name>
+      <IPAddress>10.0.18.15</IPAddress>
+    </Item>
+	<Item type="ConnectionSource">
+      <Name>rsgedinsc4.rockstar.t2.corp</Name>
+      <IPAddress>10.10.18.17</IPAddress>
+    </Item>
+	<Item type="ConnectionSource">
+      <Name>rsgindnsc3.rockstar.t2.corp</Name>
+      <IPAddress>10.42.18.56</IPAddress>
+	</Item>
+	<Item type="ConnectionSource">
+		<Name>rsgnwensc3.rockstar.t2.corp</Name>
+		<IPAddress>10.24.18.23</IPAddress>
+	</Item>
+	<Item type="ConnectionSource">
+		<Name>rsgedinsc5.rockstar.t2.corp</Name>
+		<IPAddress>10.10.18.55</IPAddress>
+	</Item>
+	<Item type="ConnectionSource">
+		<Name>rsglicnsc3.rockstar.t2.corp</Name>
+		<IPAddress>10.41.18.81</IPAddress>
+	</Item>
+	<Item type="ConnectionSource">
+		<Name>rsglinnsc3.rockstar.t2.corp</Name>
+		<IPAddress>10.4.18.18</IPAddress>
+	</Item>
+	<Item type="ConnectionSource">
+		<Name>rsgsannsc3.rockstar.t2.corp</Name>
+		<IPAddress>10.0.18.15</IPAddress>
+	</Item>
+	<Item type="ConnectionSource">
+		<Name>rsgtornsc3.rockstar.t2.corp</Name>
+		<IPAddress>10.2.18.30</IPAddress>
+	</Item>-->
+  </IgnoredConnectionSources>
+</RagConfiguration>

@@ -1,16 +1,23 @@
 # Grand Theft Auto V: Source Code Build Guide
 
-The Grand Theft Auto V: Complete Build Guide explains how to set up, compile, and modify the game's source code. It covers tool installation and game building. Users can choose Retail patches (newer .rpf files, mimicking the retail game) or the normal build (supports script editing).
+The *Grand Theft Auto V: Source Code Build Guide* explains how to set up and compile the game's source code, apply patches, install necessary tools, build shaders and scripts, and includes troubleshooting tips.
 
-Steps for applying patches, building binaries, shaders, and scripts, with troubleshooting tips are included.
+For PC you can choose between 2 diffrent game versions:
+- v2699 - Recommended this is the version of the leaked source code.
+- v3407-3521 - This patches the code to work with v3407-3521 and uses patches to make the game work like retail (this wont support scripts).
 
-### [For PC](https://github.com/FranklinClintonDev/gta-v-source-code-guide/blob/main/pc.md)
-### [For PS4 ](https://github.com/FranklinClintonDev/gta-v-source-code-guide/blob/main/ps4.md) WIP
+The PS4 game version is v1.46.
+
+### [For PC](PC.md)
+### [For PS4](PS4.md)
 
 ### Extras:
 
-#### - [Incredebuild Crack](https://github.com/FranklinClintonDev/gta-v-source-code-guide/tree/main/Extras/Incredibuild%20Crack)
-#### - [Endorphin Crack](https://github.com/FranklinClintonDev/gta-v-source-code-guide/tree/main/Extras/Endorphin%20Crack)
+#### - [Incredebuild Crack](Extras/Incredibuild%20Crack)
+#### - [Endorphin Crack](Extras/Endorphin%20Crack)
+#### - [Optional Patches](Extras/Optional%20Patches)
+   - [3rd Party Folder](Extras/Optional%20Patches/3rd%20Party%20Folder)
+   - [ProjectGenerator9 Fix](Extras/Optional%20Patches/ProjectGeneratorGen9%20Fix)
 
 ### Credits:
 
@@ -18,7 +25,9 @@ Steps for applying patches, building binaries, shaders, and scripts, with troubl
 #### PC Patches by: [Troplo](https://github.com/Troplo)
 #### PS4 Guide by: [Sorynx](https://github.com/Dbz9), [Franklin_Clinton](https://github.com/FranklinClintonDev), juniorbros, Mojso, [greensci](https://github.com/greensci). 
 #### PS4 Patches, SDKs and support by [Jorby](https://github.com/coldreactor64)
+Without you all I could not have made this guide thank you very much.
 
+---------------------------------------------------------------------
 ### If you need any help feel free to ask in our discord server https://discord.gg/YaqC9aqrsx
 
 

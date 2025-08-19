@@ -1,0 +1,1437 @@
+diff --git a/game/Core/app.cpp b/game/Core/app.cpp
+index c17cf01c..a4c49cff 100644
+--- a/game/Core/app.cpp
++++ b/game/Core/app.cpp
+@@ -1189,15 +1189,16 @@ fwFsm::Return CApp::RunGame_OnEnter()
+ 	// caching trophy bits in the saved game profile.
+ #if RSG_NP
+ 	// wait until trophy status is known (installed or not) before loading profile
+-	rlNpTrophy::WaitUntilTrophyStatusIsKnown();
++	//rlNpTrophy::WaitUntilTrophyStatusIsKnown();
+ 
+ 	// write out profile if the trophy data has been re-installed on startup (due to being missing)
++/*
+ 	if (rlNpTrophy::GetHasTrophyDataBeenReinstalled())
+ 	{
+ 		CLiveManager::GetAchMgr().ClearAchievements();
+ 		CProfileSettings::GetInstance().WriteNow(true);
+ 		rlNpTrophy::SetHasTrophyDataBeenReinstalled(false);
+-	}
++	}*/
+ #endif
+ 	//////////////////////////////////////////////////////////////////////////
+ 
+diff --git a/game/Core/gamesessionstatemachine.cpp b/game/Core/gamesessionstatemachine.cpp
+index cc3322ef..99f34d60 100644
+--- a/game/Core/gamesessionstatemachine.cpp
++++ b/game/Core/gamesessionstatemachine.cpp
+@@ -874,6 +874,8 @@ void CGameSessionStateMachine::ProcessGammaCalibration()
+ 
+ void CGameSessionStateMachine::ProcessCheckForInviteState()
+ {
++	SetState(LOAD_LEVEL);
++	return;
+ 	CSavegameAutoload::ResetAutoLoadInviteState();
+ 	eAutoLoadInviteReturnValue checkInviteStatus = CSavegameAutoload::AutoLoadCheckForAcceptingInvite();
+ 
+diff --git a/game/Core/main.cpp b/game/Core/main.cpp
+index a76e0ad0..57d4a2f9 100644
+--- a/game/Core/main.cpp
++++ b/game/Core/main.cpp
+@@ -291,9 +291,6 @@ char* XEX_TITLE_ID_HDD = "NPEB01283"; // TODO: don't have this yet
+ 	// sdk 1.7 is minimum - note that gta5 requires a special patch (1.700.601) to be applied to 1.700.081 - 1.700.141
+ 	#define RSG_MIN_ORBIS_SDK 0x01700601u	// minimum sdk required for compiling
+ 	#define RSG_MIN_ORBIS_SYS 0x01750061u	// lowest supported firmware version
+-	#if SCE_ORBIS_SDK_VERSION < RSG_MIN_ORBIS_SDK
+-	#error "Game requires PS4 SDK version 1.700.601 or better installed on your PC in order to build correctly."
+-	#endif
+ namespace rage {  
+ #pragma GCC diagnostic push
+ #pragma GCC diagnostic ignored "-Wdeprecated-writable-strings"
+diff --git a/game/Stats/MoneyInterface.cpp b/game/Stats/MoneyInterface.cpp
+index 2ef5b959..bd8fd9d3 100644
+--- a/game/Stats/MoneyInterface.cpp
++++ b/game/Stats/MoneyInterface.cpp
+@@ -1154,6 +1154,7 @@ namespace MoneyInterface
+ 
+ 	bool  SavegameCanBuyCashProducts( )
+ 	{
++		return true;
+ 		CStatsSavesMgr& saveMgr = CStatsMgr::GetStatsDataMgr().GetSavesMgr();
+ 
+ 		if (saveMgr.IsLoadPending(STAT_MP_CATEGORY_DEFAULT))
+diff --git a/game/Stats/StatsDataMgr.h b/game/Stats/StatsDataMgr.h
+index 245298f9..daddc1dc 100644
+--- a/game/Stats/StatsDataMgr.h
++++ b/game/Stats/StatsDataMgr.h
+@@ -1117,7 +1117,7 @@ protected:
+ 
+ #if RLGAMERHANDLE_NP
+ 	//The Online ID is used to identify accounts, and is chosen by the user upon signup. 
+-	//  It is a 3- to 16-character (AûZ, a-z, 0-9) string composed of alphanumeric characters, 
++	//  It is a 3- to 16-character (AΓÇôZ, a-z, 0-9) string composed of alphanumeric characters, 
+ 	//  hyphens, and/or underscores. The Online ID is guaranteed to be unique.
+ 	sUserIdStatData*  m_NextUserId;
+ #endif
+diff --git a/game/control/replay/ReplaySettings.h b/game/control/replay/ReplaySettings.h
+index 379b4843..02c3308e 100644
+--- a/game/control/replay/ReplaySettings.h
++++ b/game/control/replay/ReplaySettings.h
+@@ -44,7 +44,7 @@
+ #endif
+ 
+ #define NO_RETURN_VALUE
+-#define REPLAY_CHECK(cond, errorRet, fmt, ...)	if((cond) == false) \
++#define REPLAY_CHECK(cond, errorRet, fmt, ...)	if((cond) == NULL) \
+ 	{	REPLAY_ASSERTF(false, fmt, ##__VA_ARGS__);	return errorRet; }
+ 
+ #define REPLAY_VIEWER					0
+diff --git a/game/network/Cloud/VideoUploadManager_Custom.cpp b/game/network/Cloud/VideoUploadManager_Custom.cpp
+index 01910b6d..dc73dce9 100644
+--- a/game/network/Cloud/VideoUploadManager_Custom.cpp
++++ b/game/network/Cloud/VideoUploadManager_Custom.cpp
+@@ -378,8 +378,7 @@ void CVideoUploadManager_Custom::PostToActivityFeed(const char* videoId)
+ 
+ 	int key = atStringHash(condensedCaptionString);
+ 	g_rlNp.GetNpActivityFeed().Start(key);
+-
+-	for (sysLanguage language = LANGUAGE_ENGLISH ; language < MAX_LANGUAGES; ++language)
++	sysLanguage language = LANGUAGE_ENGLISH;
+ 	{
+ 		const char* iso = fwLanguagePack::GetIsoLanguageCode( language );
+ 
+diff --git a/game/network/Live/NetworkClan.cpp b/game/network/Live/NetworkClan.cpp
+index ad7126f9..4b17abfb 100644
+--- a/game/network/Live/NetworkClan.cpp
++++ b/game/network/Live/NetworkClan.cpp
+@@ -2863,7 +2863,7 @@ void NetworkClan::ReleaseEmblemReference( rlClanId clanId  ASSERT_ONLY(, const c
+ 
+ bool NetworkClan::IsEmblemForClanReady( rlClanId clanId )
+ {
+-	return (GetClanEmblemNameForClan(clanId) != '\0');
++	return (GetClanEmblemNameForClan(clanId)[0] != '\0');
+ }
+ 
+ bool NetworkClan::IsEmblemForClanReady( rlClanId clanId, const char*& pOut_Result )
+@@ -3224,6 +3224,8 @@ NetworkClan::Bank_Update()
+ void
+ NetworkClan::Bank_UpdateClanDetails()
+ {
++	return;
++	/*
+ 	const int localGamerIndex = NetworkInterface::GetLocalGamerIndex();
+ 
+ 	if (!rlClan::IsServiceReady(localGamerIndex) 
+@@ -3513,6 +3515,7 @@ NetworkClan::Bank_UpdateClanDetails()
+ 	}
+ 
+ 	m_bank_UpdateClanDetailsRequested = false;
++	*/
+ }
+ 
+ void  
+diff --git a/game/renderer/MeshBlendManager.cpp b/game/renderer/MeshBlendManager.cpp
+index 72122801..81964428 100644
+--- a/game/renderer/MeshBlendManager.cpp
++++ b/game/renderer/MeshBlendManager.cpp
+@@ -753,7 +753,18 @@ void MeshBlendManager::RefreshPalette()
+ 	}
+ #endif
+ 
+-	if (GetInstance().m_palette.NeedsRefresh() && GetInstance().m_renderTargetPalette)
++	bool paletteExists = &GetInstance().m_palette != nullptr;
++	
++	bool renderTargetPaletteExists = GetInstance().m_renderTargetPalette != nullptr;
++
++	bool needsRefresh = false;
++	if (paletteExists)
++	{
++		needsRefresh = GetInstance().m_palette.NeedsRefresh();
++	}
++
++
++	if (paletteExists && needsRefresh && renderTargetPaletteExists)
+ 	{
+ 		if (Verifyf(s_miscTxdIndex != -1, "No mesh blend palette txd was found! Is '%s' missing?", s_miscTxdName))
+ 		{
+@@ -836,6 +847,11 @@ void MeshBlendManager::RenderThreadUpdate()
+ 	GRC_ALLOC_SCOPE_AUTO_PUSH_POP()
+ 
+ 	Assert(CSystem::IsThisThreadId(SYS_THREAD_RENDER));
++	if (ms_instance == NULL)
++	{
++		//God damn it rockstar you dumb bitch
++		return;
++	}
+     if (!&GetInstance())
+         return;
+ 
+diff --git a/game/script/commands_network.cpp b/game/script/commands_network.cpp
+index 4b11c5ed..54236bd6 100644
+--- a/game/script/commands_network.cpp
++++ b/game/script/commands_network.cpp
+@@ -12013,6 +12013,7 @@ static int s_numRequestedEmblems = 0;
+ 
+ bool CommandNetworkClanRequestEmblem(int clanId)
+ {
++	return false;
+ 	if (s_numRequestedEmblems >= MAX_REQUESTED_EMBLEMS)
+ 	{
+ 		scriptAssertf(NetworkInterface::IsLocalPlayerOnline(), "%s:NETWORK_CLAN_REQUEST_EMBLEM - Max number of requests (%d) exceeded. Have you forgotten to call NETWORK_CLAN_RELEASE_EMBLEM?", CTheScripts::GetCurrentScriptNameAndProgramCounter(), s_numRequestedEmblems);
+diff --git a/game/system/FileMgr.cpp b/game/system/FileMgr.cpp
+index fafab9f5..87c2803c 100644
+--- a/game/system/FileMgr.cpp
++++ b/game/system/FileMgr.cpp
+@@ -3,7 +3,7 @@
+ // Started	:	22/02/05
+ 
+ #include "system/FileMgr.h"
+-
++#include <stdio.h>
+ // C headers
+ #if __WIN32PC
+ #include "direct.h"
+@@ -213,7 +213,7 @@ fiDeviceRelative gAssetsDevice;
+ fiDeviceRelative gArtDevice;
+ fiDeviceRelative gDebugDevice;			// mounted as debug: typically from the hosted build directory (eg, /<project>/build/<branch>)
+ // For packaged non-final builds, the devices below mount extra 'xxx_debug.rpf' packfiles that have -all- unshippable data in them
+-// To disable these (eg, for simulating a final configuration), use -nodebugpack as well as any applicable redirects (only final shaders, scripts, and text will be available)
++	// To disable these (eg, for simulating a final configuration), use -nodebugpack as well as any applicable redirects (only final shaders, scripts, and text will be available)
+ // Note that these are mounted after the main devices, but before the update: device, so if there's any overlap, the search hierarchy is update: -> debug common:/platform: -> main common:/platform:
+ fiPackfile gDebugPlatformPackfileDevice;	// only for packaged non-final builds (mounted as platform: from {platform}_debug.rpf)
+ fiPackfile gDebugCommonPackfileDevice;		// only for packaged non-final builds (mounted as common: from common_debug.rpf)
+@@ -227,7 +227,6 @@ fiDeviceCrc gCrcPlatformDeviceRfs;
+ fiDeviceCrc gCrcCommonDeviceRfs;
+ #endif // RSG_ORBIS || RSG_DURANGO
+ #endif // !__FINAL
+-
+ #if __WIN32PC
+ fiDeviceRelative gUserDevice;
+ fiDeviceRelative gAppDataDevice;
+@@ -530,6 +529,11 @@ void CFileMgr::FreeExtraResourceMem()
+ 
+ static void MakePlatformPackName(char *outBuffer, size_t outBufferSize, const char *rawName, int packIndex)
+ {
++	Displayf("**************************************************************************");
++	Displayf("*****************************CALLING MAKE PLATFORM PACK NAME*****************************");
++	Displayf("**************************************************************************");
++
++	
+ 	if (gPlatformPackfileCount == 1)
+ 	{
+ 		Assert(packIndex == 0);
+@@ -567,6 +571,7 @@ static void KeepAliveCallback()
+ 
+ void CFileMgr::PreSetupDevices()
+ {
++	/*
+     // when running debug hdd builds on ng, mount all data on PC too.
+     // this allows us to load rpfs from the pc if data there is newer than what's installed on console
+ #if !__FINAL && (RSG_ORBIS || RSG_DURANGO)
+@@ -612,6 +617,7 @@ void CFileMgr::PreSetupDevices()
+ 	gCrcPlatformDeviceRfs.Init("platform:/", true, &gPlatformDeviceRfs);
+ 	gCrcPlatformDeviceRfs.MountAs("platformcrc:/");
+ #endif // !__FINAL && (RSG_ORBIS || RSG_DURANGO)
++*/
+ }
+ 
+ char g_AudioPack[RAGE_MAX_PATH];
+@@ -638,7 +644,7 @@ void CFileMgr::SetupDevices()
+ 		strcpy(audioFolder, AUDIO_DIRECTORY);
+ 	}
+ 
+-	fileDisplayf("Booting %s", sysParam::GetProgramName());
++	Displayf("Booting %s", sysParam::GetProgramName());
+ 
+ 	fiDeviceInstaller::SetKeepaliveCallback(datCallback(CFA(KeepAliveCallback)), KEEP_ALIVE_CALLBACK_INTERVAL);
+ 
+@@ -646,6 +652,7 @@ void CFileMgr::SetupDevices()
+ #if RSG_ORBIS || RSG_DURANGO
+ 	if ((fiDeviceInstaller::GetIsBootedFromHdd() || PARAM_playgoemu.Get()) && !PARAM_forceboothddloose.Get())
+ 	{
++		Displayf("We are booted from HDD: %i", true);
+         if (PARAM_playgoemu.Get())
+ 		{
+             PARAM_commonpack.Set(DISKROOT_DIRECTORY "common.rpf");
+@@ -665,6 +672,7 @@ void CFileMgr::SetupDevices()
+ #endif
+ 	if(sysBootManager::IsBootedFromDisc())
+ 	{
++		Displayf("We are booted from Disc: %i", true);
+ 		const char* rootDir = GetRootFolder();
+ 		static char commonPath[RAGE_MAX_PATH];
+ 		static char platformPath[RAGE_MAX_PATH];
+@@ -718,6 +726,7 @@ void CFileMgr::SetupDevices()
+ 	}
+ 	else
+ 	{
++		Displayf("We are using PS4 Audio Files: %i", true);
+ 		formatf(g_AudioPack, "%sps4/audio/" AUDIO_RPF, GetRootFolder());
+ 	}
+ #elif RSG_DURANGO
+@@ -806,6 +815,8 @@ void CFileMgr::SetupDevices()
+ 		{
+             for (int x=0; x<gPlatformPackfileCount; x++)
+             {
++            	Displayf("[JORBYLOG] MOUNTING ALL THE PACKS");
++
+                 char platformPackName[RAGE_MAX_PATH];
+                 MakePlatformPackName(platformPackName, sizeof(platformPackName), pPlatformPack, x);
+                 CheckPack(gPlatformPackfileDevice[x].Init(platformPackName,true,GetDefaultPackfileCacheMode()),platformPackName);
+@@ -822,6 +833,7 @@ void CFileMgr::SetupDevices()
+             // the first two platform packs contain the initial payload for the prologue
+ 			for (int x=0; x<PLAYGO_PACK_COUNT; x++)
+ 			{
++				Displayf("[JORBYLOG] MOUNTING ONLY FIRST TWO PACKS");
+ 				char platformPackName[RAGE_MAX_PATH];
+ 				MakePlatformPackName(platformPackName, sizeof(platformPackName), pPlatformPack, x);
+ 				CheckPack(gPlatformPackfileDevice[x].Init(platformPackName,true,GetDefaultPackfileCacheMode()),platformPackName);
+diff --git a/game/task/Combat/TaskCombatMelee.cpp b/game/task/Combat/TaskCombatMelee.cpp
+index 090c0050..2a33aa5f 100644
+--- a/game/task/Combat/TaskCombatMelee.cpp
++++ b/game/task/Combat/TaskCombatMelee.cpp
+@@ -7243,7 +7243,7 @@ void CTaskMeleeActionResult::ProcessPreHitResults( CPed* pPed, CEntity* pTargetE
+ 	if( m_bPreHitResultsApplied )
+ 		return;
+ 
+-	const CDamageAndReaction* pDamageAndReaction = m_pActionResult ? m_pActionResult->GetDamageAndReaction() : false;
++	const CDamageAndReaction* pDamageAndReaction = m_pActionResult ? m_pActionResult->GetDamageAndReaction() : nullptr;
+ 	if( pDamageAndReaction )
+ 	{
+ 		if( pDamageAndReaction->ShouldStopDistanceHoming() )
+diff --git a/game/task/Default/TaskPlayer.cpp b/game/task/Default/TaskPlayer.cpp
+index 814d9445..8e8b9c64 100644
+--- a/game/task/Default/TaskPlayer.cpp
++++ b/game/task/Default/TaskPlayer.cpp
+@@ -7668,7 +7668,7 @@ CTaskPlayerOnFoot::ePlayerOnFootState CTaskPlayerOnFoot::CheckForAutoCover(CPed*
+ 
+ 	// Never when heavy weapon is equipped
+ 	const CPedWeaponManager* pWeaponManager = pPed->GetWeaponManager();
+-	const CWeaponInfo* pWeaponInfo = pWeaponManager ? pWeaponManager->GetEquippedWeaponInfo() : false;
++	const CWeaponInfo* pWeaponInfo = pWeaponManager ? pWeaponManager->GetEquippedWeaponInfo() : nullptr;
+ 	if( pWeaponInfo && pWeaponInfo->GetIsHeavy() )
+ 	{
+ 		return STATE_INVALID;
+diff --git a/game/vfx/misc/Fire.cpp b/game/vfx/misc/Fire.cpp
+index 6df12218..c0fed7a9 100644
+--- a/game/vfx/misc/Fire.cpp
++++ b/game/vfx/misc/Fire.cpp
+@@ -508,7 +508,7 @@ void			CFire::Shutdown							(bool finishPtFx)
+ 	// tidy up any entity flags - if there are no more fires on this entity then reset the flag
+ 	if (m_regdEntity)
+ 	{
+-		if (g_fireMan.GetEntityFire(m_regdEntity)==false)
++		if (g_fireMan.GetEntityFire(m_regdEntity)==nullptr)
+ 		{
+ 			m_regdEntity->m_nFlags.bIsOnFire = false;
+ 		}
+diff --git a/game/vfx/systems/VfxVehicle.cpp b/game/vfx/systems/VfxVehicle.cpp
+index 24be3eb5..55cedf45 100644
+--- a/game/vfx/systems/VfxVehicle.cpp
++++ b/game/vfx/systems/VfxVehicle.cpp
+@@ -2088,7 +2088,7 @@ void			CVfxVehicle::UpdatePtFxSlipstream				(CVehicle* pVehicle, float slipstrea
+ 	// check if the effect exists - it hasn't been authored yet
+ 	// once it has been this code can be removed
+ 	atHashWithStringNotFinal ptFxName("veh_slipstream",0x7C1BAEA3);
+-	if (RMPTFXMGR.GetEffectRule(ptFxName)==false)
++	if (RMPTFXMGR.GetEffectRule(ptFxName)==nullptr)
+ 	{
+ 		return;
+ 	}
+diff --git a/rage/base/src/file/savegame.h b/rage/base/src/file/savegame.h
+index c42d15a6..034e17fd 100644
+--- a/rage/base/src/file/savegame.h
++++ b/rage/base/src/file/savegame.h
+@@ -12,8 +12,8 @@
+ 
+ #define USE_SAVE_DATA_MEMORY (1 && RSG_ORBIS) 
+ 
+-#define USE_DOWNLOAD0_FOR_AUTOSAVE_BACKUP	(1 && RSG_ORBIS)
+-#define USE_DOWNLOAD0_FOR_PROFILE_BACKUP	(1 && RSG_ORBIS)
++#define USE_DOWNLOAD0_FOR_AUTOSAVE_BACKUP	(0 && RSG_ORBIS)
++#define USE_DOWNLOAD0_FOR_PROFILE_BACKUP	(0 && RSG_ORBIS)
+ 
+ #define USE_STEAM_CLOUD_SAVES (0 && __STEAM_BUILD)
+ 
+diff --git a/rage/base/src/file/tcpip_psp2.cpp b/rage/base/src/file/tcpip_psp2.cpp
+index 9aa09ef7..4dd6af0f 100644
+--- a/rage/base/src/file/tcpip_psp2.cpp
++++ b/rage/base/src/file/tcpip_psp2.cpp
+@@ -364,6 +364,9 @@ static void freeCbFunction(void *ptr,
+ } */
+ 
+ fiHandle fiDeviceTcpIp::Connect(const char * address, int port) {
++	// Convert localhost to specific IP
++	const char* resolvedAddress = strcmp(address, "localhost") == 0 ? "192.168.4.122" : address;
++	
+ 	SOCKET s;
+ 
+ #if RSG_ORBIS
+@@ -379,20 +382,19 @@ fiHandle fiDeviceTcpIp::Connect(const char * address, int port) {
+ 	sa.sin_port = sceNetHtons(port);
+ #endif
+ 
+-	if (sceNetInetPton(SCE_NET_AF_INET,address,&sa.sin_addr) <= 0
+-		/*&& doResolverNtoa(address,&sa.sin_addr) < 0*/ ) {
+-		Errorf("fiDeviceTcpIp::Connect - cannot resolve '%s'", address);
++	if (sceNetInetPton(SCE_NET_AF_INET, resolvedAddress, &sa.sin_addr) <= 0) {
++		Errorf("fiDeviceTcpIp::Connect - cannot resolve '%s'", resolvedAddress);
+ 		return fiHandleInvalid;
+ 	}
+ 
+-	if ((s = sceNetSocket(address, SCE_NET_AF_INET,SCE_NET_SOCK_STREAM,0)) < 0)
++	if ((s = sceNetSocket(resolvedAddress, SCE_NET_AF_INET, SCE_NET_SOCK_STREAM, 0)) < 0)
+ 	{
+-		Errorf("sceNetSocket - %s (Addr: %s, Port: %d)", error_string(), address, port);
++		Errorf("sceNetSocket - %s (Addr: %s, Port: %d)", error_string(), resolvedAddress, port);
+ 		return fiHandleInvalid;
+ 	}
+ 
+-	if (sceNetConnect(s,(SceNetSockaddr*)&sa,sizeof(sa)) < 0) {
+-		Errorf("sceNetConnect - %s (Addr: %s, Port: %d)", error_string(), address, port);
++	if (sceNetConnect(s, (SceNetSockaddr*)&sa, sizeof(sa)) < 0) {
++		Errorf("sceNetConnect - %s (Addr: %s, Port: %d)", error_string(), resolvedAddress, port);
+ 		sceNetSocketClose(s);
+ 		return fiHandleInvalid;
+ 	}
+@@ -400,7 +402,7 @@ fiHandle fiDeviceTcpIp::Connect(const char * address, int port) {
+ 	int noNagle = 1;
+ 	socklen_t len = sizeof(int);
+ 	if (sceNetSetsockopt(s, IPPROTO_TCP, TCP_NODELAY, &noNagle, len) < 0) {
+-		Errorf("sceNetConnect - %s (Addr: %s, Port: %d)", error_string(), address, port);
++		Errorf("sceNetConnect - %s (Addr: %s, Port: %d)", error_string(), resolvedAddress, port);
+ 		sceNetSocketClose(s);
+ 		return fiHandleInvalid;
+ 	}
+diff --git a/rage/base/src/grcore/device_gnm.cpp b/rage/base/src/grcore/device_gnm.cpp
+index 51835672..6191a92f 100644
+--- a/rage/base/src/grcore/device_gnm.cpp
++++ b/rage/base/src/grcore/device_gnm.cpp
+@@ -2089,7 +2089,7 @@ void grcDevice::DrawPrimitive(grcDrawMode dm, const grcVertexDeclaration *decl,c
+ 	AssertMsg(vertexCount > 0, "DrawPrimitive : Vertex count is less than one\n");
+ 
+ 	// optimally, we should better pass *vb as an argument, since it's really optional
+-	s_Streams[g_RenderThreadIndex][0] = &vb ? BufferWrap(vb) : BufferWrap();
++	s_Streams[g_RenderThreadIndex][0] = BufferWrap();
+ 	s_CurrentDecl = decl;
+ 
+ 	SetUpPriorToDraw(dm);
+diff --git a/rage/base/src/grcore/effect_render.cpp b/rage/base/src/grcore/effect_render.cpp
+index f5ce4017..d841ef7a 100644
+--- a/rage/base/src/grcore/effect_render.cpp
++++ b/rage/base/src/grcore/effect_render.cpp
+@@ -610,7 +610,7 @@ void grcEffect::BeginPass(int passIndex,const grcInstanceData &instanceData) con
+ 	ASSERT_ONLY(sm_CurrentEffect = this);
+ 	Assert(!sm_CurrentPass);
+ #if __WIN32PC && __BANK
+-	if (!Verifyf(sm_CurrentTechnique,"Caller didnÆt check BeginDraw result properly"))
++	if (!Verifyf(sm_CurrentTechnique,"Caller didnΓÇÖt check BeginDraw result properly"))
+ 		return;
+ #endif
+ 	sm_CurrentPass = &sm_CurrentTechnique->Passes[sm_CurrentPassIndex = passIndex];
+diff --git a/rage/base/src/parsercore/streamxml.cpp b/rage/base/src/parsercore/streamxml.cpp
+index f84f5157..b4162440 100644
+--- a/rage/base/src/parsercore/streamxml.cpp
++++ b/rage/base/src/parsercore/streamxml.cpp
+@@ -669,7 +669,7 @@ void parStreamInXml::SkipTo(const char* str)
+ 				return;
+ 			}
+ 		}
+-		if (rest == '\0' || Peek(rest)) {
++		if (rest[0] == '\0' || Peek(rest)) {
+ 			stringFound = true;
+ 		}
+ 	}
+diff --git a/rage/base/src/rline/rlnpwebapiworkitem.cpp b/rage/base/src/rline/rlnpwebapiworkitem.cpp
+index d683e97e..4cb555f2 100644
+--- a/rage/base/src/rline/rlnpwebapiworkitem.cpp
++++ b/rage/base/src/rline/rlnpwebapiworkitem.cpp
+@@ -3667,10 +3667,10 @@ void rlNpActivityFeedStory::Reset()
+ 
+ void rlNpActivityFeedStory::BuildAllCaptions()
+ {
+-	for (sysLanguage language = LANGUAGE_ENGLISH; language < MAX_LANGUAGES; ++language)
+-	{
++	sysLanguage language = LANGUAGE_ENGLISH; 
++	
+ 		BuildCaption(language);
+-	}
++	
+ }
+ 
+ void rlNpActivityFeedStory::BuildCaption(sysLanguage language)
+diff --git a/rage/base/src/rmcore/drawable.cpp b/rage/base/src/rmcore/drawable.cpp
+index 48cb8450..c4f3be78 100644
+--- a/rage/base/src/rmcore/drawable.cpp
++++ b/rage/base/src/rmcore/drawable.cpp
+@@ -487,9 +487,16 @@ void rmcDrawable::RemoveBlendShapeOffsets( grbTargetManager &blendTargetManager
+ #endif // ENABLE_BLENDSHAPES
+ 
+ void rmcDrawable::Optimize() {
+-	for (int i=0; i<LOD_COUNT; i++)
+-		if (&GetLodGroup().GetLod(i))
+-			GetLodGroup().GetLod(i).Optimize(GetShaderGroup());
++/*
++	for (int i=0; i<LOD_COUNT; i++){
++		if (&GetLodGroup().GetLod(i)){
++			grmShaderGroup& shaderGroup = GetShaderGroup();
++			if(&shaderGroup != NULL)
++			{
++				GetLodGroup().GetLod(i).Optimize(shaderGroup);
++			}
++		}
++	}*/
+ }
+ 
+ #if HACK_GTA4_MODELINFOIDX_ON_SPU
+@@ -1290,8 +1297,12 @@ void rmcDrawable::CheckSizeForSpu(datResource & PS3_ONLY(ASSERT_ONLY(rsc))) {
+ }
+ 
+ rmcDrawable::rmcDrawable(datResource &rsc) : rmcDrawableBase(rsc), m_LodGroup(rsc) {
++	//Displayf("************** RMCDRAWABLE BEGIN ****************");
+ 	rsc.PointerFixup(m_ContainerPtr);
++	//Displayf("************** POINTER FIXUP M_CONTAINERPTR ****************");
++
+ 	rsc.PointerFixup(m_DebugName);
++	//Displayf("************** POINTER FIXUP M_DEBUGNAME ****************");
+ 
+ 	// Drawable DOES own its shadergroup
+ 	// grmShaderFactory::GetInstance().ResourcePageIn(rsc,m_ShaderGroup.ptr);
+@@ -1300,16 +1311,26 @@ rmcDrawable::rmcDrawable(datResource &rsc) : rmcDrawableBase(rsc), m_LodGroup(rs
+ 	// are not loaded during that process (besides, shaders may be changed at any time)
+ 	if (m_ShaderGroup)
+ 	{
++		//Displayf("************** WE HAVE SHADER GROUP ****************");
++
+ 		GetLodGroup().ComputeBucketMask(GetShaderGroup());
+-		Optimize();
++		//Displayf("************** COMPUTE BUCKET MASK ****************");
++
++		//Optimize();
++		//Displayf("************** OPTIMIZE ****************");
+ 
+ 	#if RAGE_SUPPORT_TESSELLATION_TECHNIQUES
+ 		m_LodGroup.SortForTessellation(GetShaderGroup());
+ 	#endif // RAGE_SUPPORT_TESSELLATION_TECHNIQUES
+-	}
++		//Displayf("************** SORTFORTESSELLATION ****************");
+ 
+ 
++	}
++
++	//Displayf("************** CHECKING SPU SIZE ****************");
+ 	CheckSizeForSpu(rsc);
++	//Displayf("************** WE FINISHED ****************");
++
+ }
+ 
+ rmcDrawable::rmcDrawable(datResource &rsc, grmShaderGroup *group) : rmcDrawableBase(rsc, group), m_LodGroup(rsc) {
+diff --git a/rage/base/src/system/exception.cpp b/rage/base/src/system/exception.cpp
+index 77ecbc6a..039808ff 100644
+--- a/rage/base/src/system/exception.cpp
++++ b/rage/base/src/system/exception.cpp
+@@ -570,15 +570,8 @@ void TargetCrashCallback(unsigned pass)
+ 
+ 		if (!sysBootManager::IsDebuggerPresent() || IsForceExceptions())
+ 		{
+-			for (unsigned i=0; i<NELEM(s_ExceptionTypeValues); ++i)
+-			{
+-				ret = sceDbgInstallExceptionHandler(s_ExceptionTypeValues[i], ExceptionHandler);
+-				if (ret != SCE_OK)
+-				{
+-					Quitf("Failed installing exception handler for %s, error 0x%08x", s_ExceptionTypeStrings[i], ret);
+-				}
+-			}
+-			s_IsEnabled = true;
++			Memoryf("EXCEPTION HANDLING: debugger detected, not installing.\n");
++			Assert(!s_IsEnabled);
+ 		}
+ 		else
+ 		{
+@@ -635,17 +628,8 @@ void TargetCrashCallback(unsigned pass)
+ 				Quitf("Failed to create gpu event handler thread");
+ 			}
+ 
+-			ret = sceDbgAddGpuExceptionEvent(s_GpuEventQueue, NULL);
+-			if (ret != SCE_OK)
+ 			{
+-				if (isDevkit)
+-				{
+-					Quitf("Failed to register gpu event queue, error 0x%08x", ret);
+-				}
+-				else
+-				{
+-					Errorf("PS4 testkit failed to register gpu event queue, is installed firmware older than 1.75 ?");
+-				}
++				Errorf("PS4 testkit failed to register gpu event queue, is installed firmware older than 1.75 ?");
+ 			}
+ 		}
+ 	}
+diff --git a/rage/base/src/system/main.cpp b/rage/base/src/system/main.cpp
+index 27f1f6c0..d5d06817 100644
+--- a/rage/base/src/system/main.cpp
++++ b/rage/base/src/system/main.cpp
+@@ -1276,64 +1276,36 @@ int CommonMain(int argc, char **argv)
+ #if __PPU
+ 	grcSetup::InitSysUtilCallback();			//set this up as early as possible
+ #endif //__PPU
+-
+-#if __FINAL_LOGGING
+-	static const char* bakedArgs[] = 
+-	{
+-		// platform specific commands
+-#if RSG_SCE
+-		"/app0/eboot.bin",
++#if RSG_ORBIS
++	
++	static const char* bakedArgs[] =
++	{	
++		"/app0/eboot.bin ",
++		//"-useFinalShaders",
++		//"-DoReleaseStartup",
+ 		"-rootdir=/app0/",
++		"-update=/app0/update/",
+ 		"-commonpack=/app0/common.rpf",
+-#if RSG_ORBIS
+ 		"-platformpack=/app0/ps4.rpf",
+-#elif RSG_PROSPERO
+-		"-platformpack=/app0/prospero.rpf",
+-#endif
+-		"-update=/app0/update/",
+-#elif RSG_XBOX
+-		"game_final.exe", // overwritten by the first supplied argument
+-		"-rootdir=g:/",
+-		"-commonpack=g:\common.rpf",
+-#if RSG_DURANGO
+-		"-platformpack=g:\xboxone.rpf",
+-#elif RSG_SCARLETT
+-		"-platformpack=g:\scarlett.rpf",
+-#endif
+-		"-update=g:\update\",
+-#elif RSG_PC
+-		"GTA5.exe", // overwritten by the first supplied argument
+-#else
+-		"game_final.exe",
+-#endif
+-		// logging commands
+-#if !RSG_PC
+-		"-rline_all=debug3",
+-		"-ragenet_all=debug3",
++		"-override_script=script",
++		"-altGameConfig=gameconfig2699.xml",
++		"-npForceAllowPermissions",
++		"-rlNpPlusAuthorised",
++		"-sc_noPrologueCheckForMP",
+ 		"-net_all=debug3",
+-		"-snet_all=debug3",
+-		"-script_net_event_data_all=debug3",
+-        "-net_loading=debug3",
+-#endif
+-#if RSG_DURANGO
+-		"-voicechat_all=debug3",
+-		"-voicechat_durango_all=debug3",
+-		"-voicechat_gamechat_all=debug3",
+-#endif
+-		"-nethttpdump",
+-		"-output",
++		"-rline_all=debug3",
++		"-nompsavegame",
++		"-netSessionIgnoreDataHash",
++		"-netSessionIgnoreCheater",
++		"-netSessionIgnoreAim",
++		"-netSessionIgnoreTimeout",
++		"-netSessionIgnoreVersion"
++		// platform specific commands
++//		"-output",
++		//"-rag",
++		//"-ragUseOwnWindow",
++		//"-ragAddr=192.168.137.1",
+ 		"-ttyframeprefix",
+-#if RSG_SCE
+-#if __MASTER
+-		"-logfile=/usb0/console_final.log",
+-#else
+-		"-logfile=/app0/console_final.log",
+-#endif
+-#elif RSG_DURANGO
+-		"-logfile=xd:/console_final.log",
+-#else
+-		"-logfile=console_final.log",
+-#endif
+ 	};
+ #define MAX_ARGS 50
+ 	// argument array (consists of baked and supplied arguments)
+diff --git a/rage/base/src/system/virtualallocator.cpp b/rage/base/src/system/virtualallocator.cpp
+index f9e0f2f5..7d5d83ce 100644
+--- a/rage/base/src/system/virtualallocator.cpp
++++ b/rage/base/src/system/virtualallocator.cpp
+@@ -13,16 +13,6 @@
+ #if RSG_ORBIS
+ #include <kernel.h>
+ #include <sdk_version.h>
+-# if SCE_ORBIS_SDK_VERSION != (0x01700601u)
+-# error "You need to install the special SDK 1.73 runtime patch on this machine."
+-# error "It's located at <S:\Development\Orbis\SDK Manager\Current\1.73 SDK Patch> for R*North"
+-# error "It's located at <\\rsgsanfil4\setup\ORBIS-Tools\SDK1.73-special-version-for-GTA5> for R*SD"
+-# error "It's located at <N:\RSGLDS\Software\Platform_Development_Software\Sony\PS4\SDK\Current\SDK173-Patch> for R*Leeds"
+-# error "It's located at <N:\RSGTOR\IT_Programs\Installables.GTAV\17.PS4\SDK173-Patch> for R*Toronto"
+-# error "It's located at <N:\RSGNWE\GENERAL\SDKs and Build Tools\PS4 Development\Current\1.730.000_Patch_GTAV> for R*NE"
+-# error "See the README.txt file there for where to extract it."
+-# endif
+-#else
+ #include "system/xtl.h"
+ #endif
+ 
+@@ -239,9 +229,9 @@ void sysMemVirtualAllocator::SetMemTypeKeepContents(const void *addr, size_t siz
+ 			if (changeIdx != sysTinyBuddyHeap::TERMINATOR) {
+ 				void *p = GetVirtualPointer(changeIdx);
+ 				size_t s = (idx-changeIdx)*BuddyPageSize;
+-				int ret = sceKernelMtypeprotect(p,s,type,prot);
+-				if (ret != SCE_OK)
+-					Quitf("sceKernelMtypeprotect call %p, 0x%010zx, 0x%x, 0x%x failed, 0x%08x.",p,s,type,prot,ret);
++				//int ret = sceKernelMtypeprotect(p,s,type,prot);
++				//if (ret != SCE_OK)
++				//	Quitf("sceKernelMtypeprotect call %p, 0x%010zx, 0x%x, 0x%x failed, 0x%08x.",p,s,type,prot,ret);
+ 				do {
+ 					m_VirtualHeap.SetMemType(changeIdx, memtype);
+ 				} while (++changeIdx != idx);
+@@ -298,9 +288,9 @@ void sysMemVirtualAllocator::SetSmallPageDefaultMemType(void *ptr) {
+ 		int type = SCE_KERNEL_WB_ONION;
+ 		int prot = SCE_KERNEL_PROT_CPU_READ|SCE_KERNEL_PROT_CPU_WRITE|SCE_KERNEL_PROT_GPU_READ|SCE_KERNEL_PROT_GPU_WRITE;
+ 		void *mem = (void*)((uptr)ptr&~BuddyPageSizeMask);
+-		int ret = sceKernelMtypeprotect(mem,size,type,prot);
+-		if (ret != SCE_OK)
+-			Quitf("sceKernelMtypeprotect call %p, 0x%010zx, 0x%x, 0x%x failed, 0x%08x.",mem,size,type,prot,ret);
++		//int ret = sceKernelMtypeprotect(mem,size,type,prot);
++		//if (ret != SCE_OK)
++		//	Quitf("sceKernelMtypeprotect call %p, 0x%010zx, 0x%x, 0x%x failed, 0x%08x.",mem,size,type,prot,ret);
+ 		m_PhysicalHeap.SetMemType(idx,MEMTYPE_DEFAULT);
+ 	}
+ #endif
+diff --git a/rage/framework/src/fwtl/Pool.h b/rage/framework/src/fwtl/Pool.h
+index 07d2b984..f43a8fed 100644
+--- a/rage/framework/src/fwtl/Pool.h
++++ b/rage/framework/src/fwtl/Pool.h
+@@ -239,7 +239,7 @@ public:
+ 	// will return a NULL pointer. It does this by comparing the reference value stored
+ 	// in the handle and the reference value the pool slot contains.
+ 	// Everytime an allocation is made it reference value is incremented so the newly allocated
+-	// object wonÆt have the same reference value and is considered a different object.
++	// object wonΓÇÖt have the same reference value and is considered a different object.
+ 	void* GetAt(s32 index);
+ 	
+ 	s32 GetIndex(const void* pT) const;
+diff --git a/rage/framework/src/streaming/packfilemanager.cpp b/rage/framework/src/streaming/packfilemanager.cpp
+index 5d2afaf3..6ad43d13 100644
+--- a/rage/framework/src/streaming/packfilemanager.cpp
++++ b/rage/framework/src/streaming/packfilemanager.cpp
+@@ -647,6 +647,7 @@ void strPackfileManager::LoadImageIfUnloaded(s32 index, bool checkTimestamp) {
+ 		if (!checkTimestamp || timestamp > file.m_timestamp)
+ 		{
+ 			// rescan
++			
+ 			LoadRpf(name, index);
+ 
+ 			ms_files[index].m_timestamp = timestamp;
+@@ -1114,6 +1115,11 @@ int cmpRemap(const void *a,const void *b) {
+ 
+ bool strPackfileManager::LoadRpf(const char* name, s32 imgIndex)
+ {
++
++	Displayf("*******************LOADING RPF %s***************************", name);
++	Displayf("*******************LOADING RPF %s***************************", name);
++	Displayf("*******************LOADING RPF %s***************************", name);
++
+ 	// Don't load twice!
+ 	streamAssert(ms_files[imgIndex].m_bInitialized == false);
+ 
+diff --git a/rage/framework/src/streaming/streaminginfo.cpp b/rage/framework/src/streaming/streaminginfo.cpp
+index aad4626a..551988cb 100644
+--- a/rage/framework/src/streaming/streaminginfo.cpp
++++ b/rage/framework/src/streaming/streaminginfo.cpp
+@@ -4375,10 +4375,6 @@ strIndex strStreamingInfoManager::RegisterObject(const char* filename, strFileHa
+ #endif // STORE_FILE_SIZES
+ 
+ 						m_OverlayTable.Insert(index, info.GetHandle());
+-						streamDebugf3("RPF Overlay: File %s, packfile %s to %s",
+-							GetObjectName(index), 
+-							originalFile->m_name.GetCStr(),
+-							strPackfileManager::GetImageFile(imgIndex)->m_name.GetCStr());
+ 
+ 						legitOverlay = true;
+ 						registeredBefore = true;
+@@ -4407,6 +4403,7 @@ strIndex strStreamingInfoManager::RegisterObject(const char* filename, strFileHa
+ 
+ 					}
+ 		#endif // __ASSERT
++					Displayf("************** NOT A LEGIT OVERLAY **********************");
+  					return strIndex(strIndex::INVALID_INDEX);
+ 				}
+  			}
+diff --git a/rage/framework/src/video/contentDelete_Orbis.cpp b/rage/framework/src/video/contentDelete_Orbis.cpp
+index 4a86d7c3..d8b34234 100644
+--- a/rage/framework/src/video/contentDelete_Orbis.cpp
++++ b/rage/framework/src/video/contentDelete_Orbis.cpp
+@@ -6,9 +6,9 @@
+ #include <libsysmodule.h>
+ #include <sdk_version.h>
+ 
+-#include <content_delete.h>
++//#include <content_delete.h>
+ 
+-#pragma comment(lib,"libSceContentDelete_stub_weak.a")
++//#pragma comment(lib,"libSceContentDelete_stub_weak.a")
+ 
+ #include "contentDelete_Orbis.h"
+ 
+@@ -18,45 +18,22 @@ bool CContentDelete::m_InitSuccess = false;
+ 
+ void CContentDelete::Init(unsigned)
+ {
+-	Assertf(m_InitSuccess == false, "ERROR: CContentDelete::Init() - Already Inited");
+-
+-	if( Verifyf(sceSysmoduleLoadModule(SCE_SYSMODULE_CONTENT_DELETE) == SCE_OK, "ERROR: Load of SCE_SYSMODULE_CONTENT_DELETE module failed") )
+-	{
+-		// Initialize ContentDelete
+-		SceContentDeleteInitParam initParam;
+-		initParam.heapSize = SCE_CONTENT_DELETE_HEAP_SIZE;
+-		if (Verifyf(sceContentDeleteInitialize(&initParam) == SCE_OK, "ERROR: Load of sceContentDeleteInitialize failed") )
+-		{
+-			m_InitSuccess = true;
+-		}
+-	}
++	m_InitSuccess = true;
+ }
+ 
+ bool CContentDelete::DoDeleteVideo(const char *pMoviePath)
+ {
+-	int ret = sceContentDeleteByPath(pMoviePath);
+-	return (ret == SCE_OK);
++	return true;
+ }
+ 
+ bool CContentDelete::DoDeleteVideo(rage::s64 contentId)
+ {
+-	int ret = sceContentDeleteById(contentId);
+-	return (ret == SCE_OK);
++	return true;
+ }
+ 
+ void CContentDelete::Shutdown(unsigned)
+ {
+-	if(m_InitSuccess)
+-	{
+-		// Really need to sceContentExportCancel() then sceContentExportFinish() any content handles currently active.
+-		if( Verifyf( sceContentDeleteTerminate() == SCE_OK,"ERROR:- CContentDelete::Shutdown() - sceContentDeleteTerminate() Failed"))
+-		{
+-			if( Verifyf(sceSysmoduleUnloadModule(SCE_SYSMODULE_CONTENT_DELETE) == SCE_OK, "ERROR:- CContentDelete::Shutdown() - sceSysmoduleUnloadModule(SCE_SYSMODULE_CONTENT_DELETE) Failed") )
+-			{
+-				m_InitSuccess = false;
+-			}
+-		}
+-	}
++	m_InitSuccess = false;
+ }
+ 
+ #endif	//RSG_ORBIS
+diff --git a/rage/framework/src/video/mediaencoder_orbis.cpp b/rage/framework/src/video/mediaencoder_orbis.cpp
+index 3eea6b16..592c8d42 100644
+--- a/rage/framework/src/video/mediaencoder_orbis.cpp
++++ b/rage/framework/src/video/mediaencoder_orbis.cpp
+@@ -128,49 +128,12 @@ namespace rage
+ 	static bool PushFrameToAPI( u8 const * buffer, s32 pitch, s32 height)
+ 	{
+ 		bool success = false;
+-
+-		void *addr;
+-		int ret = sceVideoRecordingGetInfo(SCE_VIDEO_RECORDING_INFO_VIDEO_INPUT_LOCK, &addr, sizeof(addr));
+-		if (ret == SCE_OK)
+-		{
+-			// size calculation taken from Sony documentation
+-			memcpy(addr, buffer, pitch * height * 1.5);
+-
+-			ret = sceVideoRecordingSetInfo(SCE_VIDEO_RECORDING_INFO_VIDEO_INPUT_UNLOCK, 0, 0);
+-			if (ret == SCE_OK)
+-			{
+-				success = true;
+-			}
+-		}
+-
+ 		return success;
+ 	}	
+ 
+ 	static bool UpdateVideoCapture(MediaBufferBase*& buffer, MediaEncoderBuffers& bufferOwner)
+ 	{
+ 		bool success = false;
+-
+-		if( videoVerifyf( buffer, "UpdateVideoCapture - Null frame provided!" ) )
+-		{
+-			MediaBufferVideoEncode* videoBuffer = static_cast<MediaBufferVideoEncode*>(buffer);
+-
+-			MediaBufferBlobInterfaceRage& externalBufferInterface = videoBuffer->GetExternalBufferInterface();
+-			const u8* externalBuffer = externalBufferInterface.GetBytesReadOnly();
+-			if (externalBuffer)
+-			{
+-				s32 pitch, height = 1;
+-				sceVideoRecordingGetInfo(SCE_VIDEO_RECORDING_INFO_VIDEO_INPUT_PITCH, &pitch, sizeof(pitch));
+-				sceVideoRecordingGetInfo(SCE_VIDEO_RECORDING_INFO_VIDEO_INPUT_HEIGHT, &height, sizeof(height));
+-
+-				if( PushFrameToAPI( externalBuffer, pitch, height ) )
+-				{
+-					success = true;
+-				}
+-			}
+-
+-			bufferOwner.ReleaseBuffer( buffer );
+-		}
+-
+ 		return success;
+ 	}
+ 
+@@ -295,45 +258,6 @@ namespace rage
+ 	static bool UpdateAudioFrameCapture( MediaBufferBase*& buffer, MediaEncoderBuffers& bufferOwner )
+ 	{
+ 		bool success = false;
+-
+-		if( videoVerifyf( buffer, "UpdateAudioFrameCapture - Null audio buffer provided!" ) )
+-		{
+-			MediaBufferAudioEncode* audioBuffer = static_cast<MediaBufferAudioEncode*>(buffer);
+-
+-			MediaBufferBlobInterfaceRage& bufferInterface = audioBuffer->GetExternalBufferInterface();
+-			u8* externalBuffer( bufferInterface.GetBytes() );
+-			if (externalBuffer)
+-			{
+-				// Sony encoding requires exactly 1024 samples per channel (interleaved) to be submitted at once.
+-				u32 numSamples = MediaCommon::sc_audioChannels * 1024;
+-
+-				if( videoVerifyf( numSamples * MediaCommon::sc_bytesPerAudioSample == audioBuffer->GetSize(), "Audio buffer size differs from size of data being submitted" ) )
+-				{				
+-					if( videoVerifyf( MediaCommon::sc_bitsPerGameAudioSample == 16, "Expected 16 bit audio data" ) )
+-					{
+-						// We (should) have been provided with 16-bit audio data, but Sony encoder requires floating point values.
+-						f32* floatSampleBuffer = Alloca(f32, numSamples);
+-						rage::CopyMonoBufferToMonoMixBuf(floatSampleBuffer, (s16*)externalBuffer, numSamples);
+-
+-						void *addr;
+-						int ret = sceVideoRecordingGetInfo(SCE_VIDEO_RECORDING_INFO_AUDIO_INPUT_LOCK, &addr, sizeof(addr));
+-						if (ret == SCE_OK)
+-						{
+-							memcpy(addr, floatSampleBuffer, sizeof(float) * numSamples);
+-
+-							ret = sceVideoRecordingSetInfo(SCE_VIDEO_RECORDING_INFO_AUDIO_INPUT_UNLOCK, 0, 0);
+-							if (ret == SCE_OK)
+-							{
+-								success = true;
+-							}
+-						}
+-					}
+-				}
+-			}
+-
+-			bufferOwner.ReleaseBuffer( buffer );
+-		}
+-
+ 		return success;
+ 	}
+ 
+diff --git a/rage/framework/src/video/recordinginterface_orbis.cpp b/rage/framework/src/video/recordinginterface_orbis.cpp
+index 3876bbc4..a8dfb6b0 100644
+--- a/rage/framework/src/video/recordinginterface_orbis.cpp
++++ b/rage/framework/src/video/recordinginterface_orbis.cpp
+@@ -399,483 +399,6 @@ void RecordingTaskOrbis::ProhibitShareRecording(bool prohibit)
+ 
+ void RecordingTaskOrbis::ProcessAction( eWorkerAction const action )
+ {
+-#if	USES_MEDIA_ENCODER
+-		MediaEncoder& encoder = GetEncoder();
+-
+-		switch( action )
+-		{
+-		case ACTION_START_RECORDING:
+-			{
+-				bool success = false;
+-				s32 ret = SCE_OK;
+-				videoAssertf( !encoder.IsCapturing(), "RecordingTaskOrbis::RecorderWorkerThread - Encoder already in use." );
+-				if( !encoder.IsCapturing() )
+-				{
+-					char	fileNameAndPath[256];
+-					sprintf(fileNameAndPath, "%s%s%s", SCE_VIDEO_RECORDING_PATH_GAME, m_ClipName.c_str(), ".mp4");
+-
+-					videoDisplayf("RecordingTaskOrbis::RecorderWorkerThread(): ACTION_START_RECORDING");
+-
+-					SceVideoRecordingParam param;
+-					sceVideoRecordingParamInit(&param);
+-					param.audioInput = SCE_VIDEO_RECORDING_AUDIO_INPUT_FLOAT;
+-					param.videoInput = SCE_VIDEO_RECORDING_VIDEO_INPUT_NV12;
+-#if HOUR_RECORDING
+-					param.ringSec = (60 * 60);
+-#endif
+-					s32 memSize = static_cast<s32>(sceVideoRecordingQueryMemSize(&param));
+-					videoAssertf(memSize <= VIDEO_RECORDING_MAX_MEM_SIZE, "RecordingTaskOrbis::RecorderWorkerThread - requesting too much memory %d", memSize);
+-
+-					ret = sceVideoRecordingOpen(fileNameAndPath, &param, &m_RecordBuffer, memSize);
+-					if(ret == SCE_OK) 
+-					{
+-						videoDisplayf("RecordingTaskOrbis::RecorderWorkerThread(): sceVideoRecordingStart called");
+-						ret = sceVideoRecordingStart();
+-						videoAssertf(ret == SCE_OK, "RecordingTaskOrbis::RecorderWorkerThread(): sceVideoRecordingStart return code: 0x%x", ret);
+-						if(ret == SCE_OK) 
+-						{
+-							videoDisplayf("RecordingTaskOrbis::RecorderWorkerThread(): sceVideoRecordingStart success");
+-							MediaEncoderParams encodingParams;
+-
+-							if( sm_recordingDataProvider )
+-							{
+-                                u32 gameWidth, gameHeight;
+-                                sm_recordingDataProvider->GetGameFramebufferDimensions( gameWidth, gameHeight );
+-                                encodingParams.SetOutputDimensions( gameWidth, gameHeight );
+-								encodingParams.SetOutputQuality( sm_recordingDataProvider->GetRecordingQualityLevel() );
+-								encodingParams.SetOutputFps( sm_recordingDataProvider->GetRecordingFps() );
+-								encodingParams.SetOutputFormat( sm_recordingDataProvider->GetFormatRequested() );
+-								encodingParams.SetEstimatedDurationMs( sm_recordingDataProvider->GetEstimatedDurationMs() );
+-								encodingParams.SetGameTitle( sm_recordingDataProvider->GetGameTitle() );
+-								encodingParams.SetCopyright( sm_recordingDataProvider->GetCopyright() );
+-							}
+-
+-							success = videoVerifyf( encodingParams.IsValid(), "RecordingTaskOrbis::ProcessAction - Invalid encoder parameters specified" ) ? 
+-								encoder.StartCapture( m_ClipName.c_str(), fileNameAndPath, m_isInInitialPause, m_synchronized, encodingParams ) : false;
+-
+-							videoDisplayf( success ? "Recording Started OK :)" : "Recording task got bad params :(" );
+-						}
+-
+-						if( m_isPaused )
+-						{
+-							if( !encoder.IsPaused() )
+-							{
+-								encoder.PauseCapture();
+-							}
+-						}
+-						
+-					}
+-				}
+-
+-				if( !success )
+-				{
+-					videoDisplayf("RecordingTaskOrbis::RecorderWorkerThread(): ACTION_START_RECORDING Failed. See above logs for more detail.");
+-					m_errorState = (ret == SCE_VIDEO_RECORDING_ERROR_NO_SPACE) ? ERROR_STATE_OUT_OF_SPACE : ERROR_STATE_UNKNOWN;
+-				}
+-
+-				break;
+-			}
+-
+-		case ACTION_PAUSE_RECORDING:
+-			{
+-				videoDisplayf("RecordingTaskOrbis::RecorderWorkerThread(): ACTION_PAUSE_RECORDING");
+-
+-				m_isInInitialPause = false;
+-
+-				m_isPaused = true;
+-				if( !encoder.IsPaused() )
+-				{
+-					videoDisplayf("Recording Stopped OK - On Pause");
+-					encoder.PauseCapture();
+-				}
+-				
+-
+-				break;
+-			}
+-
+-		case ACTION_RESUME_RECORDING:
+-			{
+-				videoDisplayf("RecordingTaskOrbis::RecorderWorkerThread(): ACTION_RESUME_RECORDING");
+-
+-				m_isInInitialPause = false;
+-				
+-				m_isPaused = false;
+-				if( encoder.IsPaused() )
+-				{
+-					videoDisplayf("Recording Started OK - On Resume");
+-					encoder.ResumeCapture();
+-				}
+-				
+-
+-				break;
+-			}
+-
+-		case ACTION_STOP_RECORDING:
+-			{
+-				// set up metadata saying it's been recorded in the game's video editor
+-				const int maxStringLength = 255;
+-				char stringToSet[maxStringLength] = { 0 };
+-
+-				m_isInInitialPause = false;
+-
+-				if( encoder.IsCapturing() &&
+-					encoder.StopCapture( m_Cancelled ) )
+-				{
+-					UpdateErrorCode();
+-				}
+-				else
+-				{
+-					m_errorState = ERROR_STATE_UNKNOWN;
+-				}
+-
+-				formatf(stringToSet, maxStringLength, "Created with the Rockstar Editor in %s", m_gameName.c_str());
+-				VideoRecordingSetInfo(SCE_VIDEO_RECORDING_INFO_DESCRIPTION, stringToSet);
+-
+-				formatf(stringToSet, maxStringLength, "%s Exported Video", m_gameNameShort.c_str());
+-				VideoRecordingSetInfo(SCE_VIDEO_RECORDING_INFO_SUBTITLE, stringToSet);
+-
+-
+-				char	fileNameAndPath[256];
+-				sprintf(fileNameAndPath, "%s%s%s", SCE_VIDEO_RECORDING_PATH_GAME, m_ClipName.c_str(), ".mp4");
+-
+-				videoDisplayf("RecordingTaskOrbis::RecorderWorkerThread(): ACTION_STOP_RECORDING");
+-
+-				{
+-					int ret = sceVideoRecordingStop();
+-					if ( ret != SCE_OK ) 
+-					{
+-						Displayf("ERROR: sceVideoRecordingStop() - 0x%x", ret);
+-						m_errorState = (ret == SCE_VIDEO_RECORDING_ERROR_NO_SPACE) ? ERROR_STATE_OUT_OF_SPACE : ERROR_STATE_UNKNOWN;
+-					}
+-					else
+-					{
+-						m_RecordState = RECORD_STATE_RECORDING_STOPPED;
+-					}
+-				}
+-
+-				int ret = sceVideoRecordingClose((int)m_Cancelled);
+-				if (ret == SCE_OK) 
+-				{
+-					m_RecordState = HasErrorCode() || m_Cancelled ?  RECORD_STATE_CANCELLED : RECORD_STATE_SUCCESS;
+-				}
+-				else
+-				{
+-					videoDisplayf("ERROR: sceVideoRecordingClose() - 0x%x", ret);
+-					m_errorState = (ret == SCE_VIDEO_RECORDING_ERROR_NO_SPACE) ? ERROR_STATE_OUT_OF_SPACE : ERROR_STATE_UNKNOWN;
+-				}
+-
+-				if( m_RecordState == RECORD_STATE_SUCCESS )
+-				{
+-					videoDisplayf("Video Export: file to export %s", fileNameAndPath);
+-					if (m_hasThumbnail)
+-					{
+-						videoDisplayf("Video Export: Started Video Export with Thumbnail");
+-						videoDisplayf("Video Export: thumbnail to export %s", m_ThumbnailPath.c_str());
+-
+-						// hold off exporting until we know the thumbnail is ready, or has failed by setting m_hasThumbnail to false
+-						while (!m_isThumbnailReady && m_hasThumbnail)
+-						{
+-							sysIpcSleep(10);
+-						}
+-
+-						// since m_hasThumbnail can become false while in the loop, test again to make sure we have a thumbnail to export
+-						// if not, fall through to the usual test for export with no thumbnail
+-						if (m_hasThumbnail)
+-						{
+-							videoDisplayf("Video Export: Thumbnail ready");
+-							CContentExport::DoExportVideo(m_ClipName.c_str(), fileNameAndPath, m_ThumbnailPath.c_str());
+-							videoDisplayf("Video Export: Exported.");
+-						}
+-						else
+-						{
+-							videoDisplayf("Video Export: Thumbnail failed");
+-						}
+-					}
+-
+-					if (!m_hasThumbnail)
+-					{
+-						videoDisplayf("Video Export: No thumbnail");
+-						CContentExport::DoExportVideo(m_ClipName.c_str(), fileNameAndPath);
+-						videoDisplayf("Video Export: Exported.");
+-					}
+-				}
+-
+-				// reset metadata for sharing
+-				VideoRecordingSetInfo(SCE_VIDEO_RECORDING_INFO_DESCRIPTION, m_gameName.c_str());
+-				VideoRecordingSetInfo(SCE_VIDEO_RECORDING_INFO_SUBTITLE, m_gameNameShort.c_str());
+-
+-				RecordingTaskOrbis::ProhibitShareRecording(false);
+-				DecRefCount();
+-			}
+-
+-			break;
+-
+-		default:
+-			{
+-				Assertf( false, "RecordingTaskOrbis::RecorderWorkerThread - Unsupported action %d requested", action );
+-				break;
+-			}
+-		}
+-#else
+-		switch(action)
+-		{
+-		case ACTION_START_RECORDING:
+-			{
+-				char	fileNameAndPath[256];
+-				sprintf(fileNameAndPath, "%s%s%s", SCE_VIDEO_RECORDING_PATH_GAME, m_ClipName.c_str(), ".mp4");
+-
+-				videoDisplayf("RecordingTaskOrbis::RecorderWorkerThread(): ACTION_START_RECORDING");
+-
+-				SceVideoRecordingParam param;
+-				sceVideoRecordingParamInit(&param);
+-#if HOUR_RECORDING
+-				param.ringSec = (60 * 60);
+-#endif
+-				s32 memSize = static_cast<s32>(sceVideoRecordingQueryMemSize(&param));
+-				videoAssertf(memSize <= VIDEO_RECORDING_MAX_MEM_SIZE, "RecordingTaskOrbis::RecorderWorkerThread - requesting too much memory %d", memSize);
+-
+-				int ret = sceVideoRecordingOpen(fileNameAndPath, &param, m_RecordBuffer, memSize);
+-
+-				if(ret == SCE_OK) 
+-				{
+-					if( m_isPaused )
+-					{
+-						audDriver::GetMixer()->PauseGroup(0, true);
+-					}
+-					else
+-					{
+-						ret = sceVideoRecordingStart();
+-						if(ret == SCE_OK) 
+-						{
+-							videoDisplayf("Recording Started OK :)");
+-						}
+-						else
+-						{
+-							// Display the error
+-							videoDisplayf("ERROR: sceVideoRecordingStart() - 0x%x", ret);
+-							m_errorState = (ret == SCE_VIDEO_RECORDING_ERROR_NO_SPACE) ? ERROR_STATE_OUT_OF_SPACE : ERROR_STATE_UNKNOWN;
+-							sceVideoRecordingClose(0);						// Close on start error (see VideoRecording Example)
+-							DecRefCount();
+-						}
+-					}
+-
+-					/*ret = sceVideoRecordingStart();
+-					if(ret == SCE_OK) 
+-					{
+-						Displayf("Recording Started OK :)");
+-
+-						pTask->m_isPaused = workerData.userData;
+-						if( pTask->m_isPaused )
+-						{
+-							audDriver::GetMixer()->PauseGroup(0, true);
+-							sceVideoRecordingStop();
+-							pTask->m_isPaused = true;
+-						}
+-					}
+-					else
+-					{
+-						// Display the error
+-						Displayf("ERROR: sceVideoRecordingStart() - 0x%x", ret);
+-						pTask->m_RecordState = RECORD_STATE_ERROR;
+-						pTask->m_errorState = ERROR_STATE_UNKNOWN;
+-						sceVideoRecordingClose(0);						// Close on start error (see VideoRecording Example)
+-						pTask->DecRefCount();
+-					}*/
+-				}
+-				else
+-				{
+-					// Display the error
+-					Displayf("ERROR: sceVideoRecordingOpen() - 0x%x", ret);
+-					m_errorState = ERROR_STATE_UNKNOWN;
+-					DecRefCount();
+-				}
+-			}
+-			break;
+-
+-		case ACTION_STOP_RECORDING:
+-			{
+-				// set up metadata saying it's been recorded in the game's video editor
+-				const int maxStringLength = 255;
+-				char stringToSet[maxStringLength] = { 0 };
+-
+-				m_isInInitialPause = false;
+-				
+-				formatf(stringToSet, maxStringLength, "Created with the Rockstar Editor in %s", m_gameName.c_str());
+-				VideoRecordingSetInfo(SCE_VIDEO_RECORDING_INFO_DESCRIPTION, stringToSet);
+-
+-				formatf(stringToSet, maxStringLength, "%s Exported Video", m_gameNameShort.c_str());
+-				VideoRecordingSetInfo(SCE_VIDEO_RECORDING_INFO_SUBTITLE, stringToSet);
+-
+-				
+-				char	fileNameAndPath[256];
+-				sprintf(fileNameAndPath, "%s%s%s", SCE_VIDEO_RECORDING_PATH_GAME, m_ClipName.c_str(), ".mp4");
+-
+-				videoDisplayf("RecordingTaskOrbis::RecorderWorkerThread(): ACTION_STOP_RECORDING");
+-
+-				if (!IsPaused())
+-				{
+-					int ret = sceVideoRecordingStop();
+-					if ( ret != SCE_OK ) 
+-					{
+-						videoDisplayf("ERROR: sceVideoRecordingStop() - 0x%x", ret);
+-						m_errorState = ERROR_STATE_UNKNOWN;
+-					}
+-					else
+-					{
+-						m_RecordState = RECORD_STATE_RECORDING_STOPPED;
+-					}
+-				}
+-
+-				int ret = sceVideoRecordingClose((int)m_Cancelled);
+-				if (ret == SCE_OK) 
+-				{
+-					if( !HasError() )
+-					{
+-						if(m_Cancelled)
+-						{
+-							m_RecordState = RECORD_STATE_CANCELLED;
+-						}
+-						else
+-						{
+-							m_RecordState = RECORD_STATE_SUCCESS;
+-						}
+-					}
+-				}
+-				else
+-				{
+-					videoDisplayf("ERROR: sceVideoRecordingClose() - 0x%x", ret);
+-					m_errorState = ERROR_STATE_UNKNOWN;
+-				}
+-
+-				// If it was canceled, then unlike Durango, the file wasn't created.
+-				if( !m_Cancelled )
+-				{
+-
+-	#if SAVE_VIDEO
+-					if( m_bSaveToDisc == true && m_RecordState == RECORD_STATE_SUCCESS)
+-					{
+-						char	fileNameAndPath[256];
+-						sprintf(fileNameAndPath, "%s%s%s", SCE_VIDEO_RECORDING_PATH_GAME, m_ClipName.c_str(), ".mp4");
+-
+-						// Save out to local PC
+-						fiStream* pSourceStream = ASSET.Open(fileNameAndPath,"");
+-						if( pSourceStream )
+-						{
+-							fiStream *pDestStream = ASSET.Create(m_ClipSaveName.c_str(),"");
+-							if( pDestStream )
+-							{
+-								#define COPY_BUFFER_SIZE	(2048)
+-								char	copyBuffer[COPY_BUFFER_SIZE];
+-
+-								int sizeRemaining = pSourceStream->Size();
+-								while(sizeRemaining)
+-								{
+-									int sizeToCopy = rage::Min(sizeRemaining, COPY_BUFFER_SIZE);
+-									pSourceStream->Read(copyBuffer, sizeToCopy);
+-									pDestStream->Write(copyBuffer, sizeToCopy);
+-									sizeRemaining -= sizeToCopy;
+-								}
+-								pDestStream->Flush();
+-								pDestStream->Close();
+-								videoDisplayf("Recorded Video saved to %s", m_ClipSaveName.c_str());
+-							}
+-							pSourceStream->Close();
+-						}
+-					}
+-	#endif	//SAVE_VIDEO
+-
+-				}
+-
+-				if( m_RecordState == RECORD_STATE_SUCCESS )
+-				{
+-					videoDisplayf("Video Export: file to export %s", fileNameAndPath);
+-					if (m_hasThumbnail)
+-					{
+-						videoDisplayf("Video Export: Started Video Export with Thumbnail");
+-						videoDisplayf("Video Export: thumbnail to export %s", m_ThumbnailPath.c_str());
+-						
+-						// hold off exporting until we know the thumbnail is ready, or has failed by setting m_hasThumbnail to false
+-						while (!m_isThumbnailReady && m_hasThumbnail)
+-						{
+-							sysIpcSleep(10);
+-						}
+-
+-						// since m_hasThumbnail can become false while in the loop, test again to make sure we have a thumbnail to export
+-						// if not, fall through to the usual test for export with no thumbnail
+-						if (m_hasThumbnail)
+-						{
+-							videoDisplayf("Video Export: Thumbnail ready");
+-							CContentExport::DoExportVideo(m_ClipName.c_str(), fileNameAndPath, m_ThumbnailPath.c_str());
+-							videoDisplayf("Video Export: Exported.");
+-						}
+-						else
+-						{
+-							videoDisplayf("Video Export: Thumbnail failed");
+-						}
+-					}
+-					
+-					if (!m_hasThumbnail)
+-					{
+-						videoDisplayf("Video Export: No thumbnail");
+-						CContentExport::DoExportVideo(m_ClipName.c_str(), fileNameAndPath);
+-						videoDisplayf("Video Export: Exported.");
+-					}
+-				}
+-				
+-				// reset metadata for sharing
+-				VideoRecordingSetInfo(SCE_VIDEO_RECORDING_INFO_DESCRIPTION, m_gameName.c_str());
+-				VideoRecordingSetInfo(SCE_VIDEO_RECORDING_INFO_SUBTITLE, m_gameNameShort.c_str());
+-
+-				DecRefCount();
+-			}
+-
+-			break;
+-		case ACTION_PAUSE_RECORDING:
+-			{
+-				m_isInInitialPause = false;
+-
+-				audDriver::GetMixer()->PauseGroup(0, true);
+-				int ret = sceVideoRecordingStop();
+-
+-				if(ret == SCE_OK) 
+-				{
+-					videoDisplayf("Recording Stopped OK - On Pause");
+-				}
+-				else
+-				{
+-					videoDisplayf("ERROR: sceVideoRecordingStop() - On Pause - 0x%x", ret);
+-					m_errorState = ERROR_STATE_UNKNOWN;
+-				}
+-			}
+-			break;
+-		case ACTION_RESUME_RECORDING:
+-			{
+-				m_isInInitialPause = false;
+-
+-				int ret = sceVideoRecordingStart();
+-				audDriver::GetMixer()->PauseGroup(0, false);
+-
+-				if(ret == SCE_OK) 
+-				{
+-					videoDisplayf("Recording Started OK - On Resume");
+-				}
+-				else
+-				{
+-					// Display the error
+-					videoDisplayf("ERROR: sceVideoRecordingStart() - On Resume - 0x%x", ret);
+-					m_errorState = ERROR_STATE_UNKNOWN;
+-					sceVideoRecordingClose(0);						// Close on start error (see VideoRecording Example)
+-					DecRefCount();
+-				}
+-			}
+-			break;
+-		default:
+-			{
+-				videoAssertf( false, "RecordingTaskOrbis - Unsupported action %d requested", action );
+-				break;
+-			}
+-		}
+-#endif
+ }
+ 
+ 
+diff --git a/rage/scaleform/Src/GFxPlayer/GFxTextField.cpp b/rage/scaleform/Src/GFxPlayer/GFxTextField.cpp
+index 08fb203b..a19edb96 100644
+--- a/rage/scaleform/Src/GFxPlayer/GFxTextField.cpp
++++ b/rage/scaleform/Src/GFxPlayer/GFxTextField.cpp
+@@ -3455,7 +3455,7 @@ public:
+         // Do viewport culling if bounds are available (and not a 3D object)
+         if (
+ #ifndef GFC_NO_3D
+-            context.pParentMatrix3D == false && 
++            context.pParentMatrix3D == nullptr && 
+ #endif
+             !proot->GetVisibleFrameRectInTwips().Intersects(mat.EncloseTransform(pDocument->GetViewRect())))
+             if (!(context.GetRenderFlags() & GFxRenderConfig::RF_NoViewCull))
