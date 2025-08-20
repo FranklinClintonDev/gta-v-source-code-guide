@@ -16,7 +16,7 @@ The PS4 game version is v1.46.
 #### - [Incredebuild Crack](Extras/Incredibuild%20Crack)
 #### - [Endorphin Crack](Extras/Endorphin%20Crack)
 #### - [Optional Patches](Extras/Optional%20Patches)
-   - [3rd Party Folder](Extras/Optional%20Patches/3rd%20Party%20Folder) - Use this if you modify any rpf files 
+   - [3rd Party Folder](Extras/Optional%20Patches/3rd%20Party%20Folder) 
 
 ### Credits:
 
@@ -28,6 +28,7 @@ Without you all I could not have made this guide thank you very much.
 
 ---------------------------------------------------------------------
 ### If you need any help feel free to ask in our discord server https://discord.gg/YaqC9aqrsx
+
 
 
 
