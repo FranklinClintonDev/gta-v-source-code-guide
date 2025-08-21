@@ -276,6 +276,16 @@ To do this, Follow this steps:
 3. Replace `PUT-IP-HERE` with your IPv4 Address in `studios.meta` and `rag.meta`
 4. Move `studios.meta` and `rag.meta` to `X:\gta5\tools_ng\etc\globals`
 
+### Error when compiling Final
+
+```
+error C2065: 'overrideScriptRpfName': undeclared identifier
+error C2065: 'overrideDIcScriptRpfName': undeclared identifier
+error LNK1181: cannot open input file x\gta5\src\dev_ng\objects\game3_lib_2012_unity\x64_Final\v110_xp\game3_lib.lib'
+```
+Solution grab a new `X:\gta5\src\dev_ng\game\scene\FileLoader.cpp` from `GTAVSP.7z` and replace with current one.
+
+
 
 
 
