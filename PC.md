@@ -103,7 +103,7 @@
 </div>
 
 4. Hold Ctrl key and select all projects under `GameLibs`, `Rage` and `game` folder, right-click and select `Properties`.
-
+  - Every time you change `Active Solution Configuration` you will need to repeat this step or your builds will fail.
 <div style="text-align:center;">
 <img src="IMG/06.png" alt="image" style="width:35%;">
 </div>
