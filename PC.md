@@ -282,7 +282,7 @@ To do this, Follow this steps:
 ```
 error C2065: 'overrideScriptRpfName': undeclared identifier
 error C2065: 'overrideDIcScriptRpfName': undeclared identifier
-error LNK1181: cannot open input file x\gta5\src\dev_ng\objects\game3_lib_2012_unity\x64_Final\v110_xp\game3_lib.lib'
+error LNK1181: cannot open input file x:\gta5\src\dev_ng\objects\game3_lib_2012_unity\x64_Final\v110_xp\game3_lib.lib'
 ```
 Solution grab a new `X:\gta5\src\dev_ng\game\scene\FileLoader.cpp` from `GTAVSP.7z` and replace with current one.
 
