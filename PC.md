@@ -277,7 +277,7 @@ To do this, Follow this steps:
 3. Replace `PUT-IP-HERE` with your IPv4 Address in `studios.meta` and `rag.meta`
 4. Move `studios.meta` and `rag.meta` to `X:\gta5\tools_ng\etc\globals`
 
-### Error when compiling Final
+### Error when compiling Active Solution Configuration Final
 
 ```
 error C2065: 'overrideScriptRpfName': undeclared identifier
