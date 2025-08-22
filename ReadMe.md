@@ -2,6 +2,8 @@
 
 The *Grand Theft Auto V: Source Code Build Guide* explains how to set up and compile the game's source code, apply patches, install necessary tools, build shaders and scripts, and includes troubleshooting tips.
 
+This guide does not distribute or link to any leaked copy of the source code; you will need to obtain it yourself.
+
 For PC you can choose between 2 diffrent game versions:
 - v2699 - Recommended this is the version of the leaked source code.
 - v3407-3521 - This patches the code to work with v3407-3521 and uses patches to make the game work like retail (this wont support scripts).
@@ -31,6 +33,7 @@ Without you all I could not have made this guide thank you very much.
 
 ---------------------------------------------------------------------
 ### If you need any help feel free to ask in our discord server https://discord.gg/YaqC9aqrsx
+
 
 
 
