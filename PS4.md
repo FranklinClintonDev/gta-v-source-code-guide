@@ -243,7 +243,7 @@ ragScriptEditor
 
 # Running Rag
 
- Running rag in this build is possible and all platforms that the source code compiles for but in the moment i dont have a guide for PS4. Please reach out to [Sorynx](https://github.com/Dbz9) or our server (https://discord.gg/YaqC9aqrsx) on discord for help running it 
+ Running rag in this build is possible and all platforms that the source code compiles for but in the moment i dont have a guide for PS4. Please reach out to [Sorynx](https://github.com/Dbz9) or [our server](https://discord.gg/YaqC9aqrsx) on discord for help running it 
 
 
  ----------------------------------------------------
