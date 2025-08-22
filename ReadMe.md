@@ -10,7 +10,7 @@ The PS4 game version is v1.46.
 
 ### [For PC](PC.md)
 ### [For PS4](PS4.md)
-### [For Xbox One](XBOX-ONE.md) (NOT WORKING)
+### [Xbox One](Xbox%20One.md) (NOT WORKING)
 
 ### Extras:
 
@@ -31,6 +31,7 @@ Without you all I could not have made this guide thank you very much.
 
 ---------------------------------------------------------------------
 ### If you need any help feel free to ask in our discord server https://discord.gg/YaqC9aqrsx
+
 
 
 
