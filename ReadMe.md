@@ -25,10 +25,13 @@ The PS4 game version is v1.46.
 #### PC Patches by: [Troplo](https://github.com/Troplo)
 #### PS4 Guide by: [Sorynx](https://github.com/Dbz9), [Franklin_Clinton](https://github.com/FranklinClintonDev), [juniorbros](https://github.com/satincult8), Mojso, [greensci](https://github.com/greensci). 
 #### PS4 Patches, SDKs and support by [Jorby](https://github.com/coldreactor64)
+#### Xbox One Guide by: [Franklin_Clinton](https://github.com/FranklinClintonDev)
+#### Xbox One SDK by: [Sorynx](https://github.com/Dbz9)
 Without you all I could not have made this guide thank you very much.
 
 ---------------------------------------------------------------------
 ### If you need any help feel free to ask in our discord server https://discord.gg/YaqC9aqrsx
+
 
 
 
