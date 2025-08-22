@@ -13,7 +13,7 @@
 - [PS4 SDK 1.200/2.500](https://pixeldrain.com/u/ffVDXJos)
 - A Jailbroken PS4 is required for running the build.
    - You can find tutorials by modded warfare on how to do it. 
-   - Before you even try this make sure your PS4 Firmware is 9:00-11:00, maybe even 12:00
+   - Before you even try this make sure your PS4 Firmware is 9:00-11:00, maybe even 12:00 but not recommended 
 
 ## Installing the Toolset
 
@@ -236,3 +236,14 @@ ragScriptEditor
 
 3. Replace `PUT-IP-HERE` with your IPv4 Address in `studios.meta` and `rag.meta`
 4. Move `studios.meta` and `rag.meta` to `X:\gta5\tools_ng\etc\globals`
+
+### Broken Render Distance - This is due to some errors in the render distance code but if you are a decent coder, you could fix it.
+
+----------------------------------------------------
+
+# Running Rag
+
+ Running rag in this build is possible and all platforms that the source code compiles for but in the moment i dont have a guide for PS4. Please reach out to [Sorynx](https://github.com/Dbz9) or our server (https://discord.gg/YaqC9aqrsx) on discord for help running it 
+
+
+ ----------------------------------------------------
