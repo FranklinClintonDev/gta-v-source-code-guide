@@ -16,7 +16,8 @@ echo ------------------------------------------------------
 pause
 
 REM Create the network share using the drive letter and path
-net use X: \\localhost\%driveletter%$\%folderpath:~3% /persistent:yes
+net use \\localhost\* /delete
+net use X: "\\localhost\%driveletter%$\%folderpath:~3%"
 
 echo Drive mapped successfully to X: using path \\localhost\%driveletter%$\%folderpath:~3%
 pause

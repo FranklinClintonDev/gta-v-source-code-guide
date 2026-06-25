@@ -1,6 +1,7 @@
 @echo off
 REM Disconnect the X: drive
 net use X: /delete
+net use \\localhost\* /delete
 
 REM Check if the disconnection was successful
 if %errorlevel% equ 0 (
