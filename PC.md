@@ -238,7 +238,7 @@ It should be like this now:
 
 ```batch
 cd %~dp0
-EXENAME.exe -noSocialClub -nokeyboardhook -nonetlogs -rag ragUseOwnWindow
+EXENAME.exe -noSocialClub -nokeyboardhook -nonetlogs -rag -ragUseOwnWindow
 ```
 
 #### Now that everything is setup
