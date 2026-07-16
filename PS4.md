@@ -242,9 +242,70 @@ ragScriptEditor
 
 ----------------------------------------------------
 
-## Running Rag
+## Running RAG
 
- Running rag in this build is possible and all platforms that the source code compiles for but in the moment i dont have a guide for PS4. Please reach out to [Sorynx](https://github.com/Dbz9) or [our server](https://discord.gg/YaqC9aqrsx) on discord for help running it 
+RAG can now be run on PS4 and PS5 by sharing your PC's Wi-Fi connection through Ethernet.
 
+1. Connect your PC to the internet using Wi-Fi.
+2. Connect an Ethernet cable from your PC to your PS4 or PS5.
+3. Enable Internet Connection Sharing for your PC's Ethernet adapter.
+4. Open the following file:
 
- ----------------------------------------------------
+```text
+X:\gta5\src\dev_ng\rage\base\src\system\main.cpp
+```
+
+Inside the `#if RSG_ORBIS` section, locate the following array:
+
+```cpp
+static const char* bakedArgs[] =
+{
+    // platform specific commands
+```
+
+Directly under `// platform specific commands`, add these arguments:
+
+```cpp
+    "-rag",
+    "-ragUseOwnWindow",
+    "-ragAddr=192.168.137.1",
+```
+
+The beginning of the section should look like this:
+
+```cpp
+#if RSG_ORBIS
+
+static const char* bakedArgs[] =
+{
+    // platform specific commands
+    "-rag",
+    "-ragUseOwnWindow",
+    "-ragAddr=192.168.137.1",
+```
+
+5. Configure the console's network connection manually using:
+
+```text
+IP address:       192.168.137.X
+Subnet mask:      255.255.255.0
+Default gateway:  192.168.137.1
+Primary DNS:      62.210.38.117
+Secondary DNS:    0.0.0.0
+MTU:              Automatic
+Proxy server:     Do not use
+```
+
+Replace `X` with an unused number between `2` and `254`. For example:
+
+```text
+192.168.137.87
+```
+
+Do not use `192.168.137.0`, `192.168.137.1`, or `192.168.137.255`.
+
+The DNS address `62.210.38.117` was previously used to help prevent the PS4 from downloading system updates. We do not know whether it still works, so it is not guaranteed to block updates.
+
+For additional help running RAG, please reach out to [Sorynx](https://github.com/Dbz9) or join [our Discord server](https://discord.gg/YaqC9aqrsx).
+
+----------------------------------------------------
