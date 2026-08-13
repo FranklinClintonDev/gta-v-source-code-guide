@@ -15,7 +15,6 @@ Due to legel reasons i have to name the console a diffrent name, you can probabl
 ### [For PC](PC.md)
 ### [For PS4](PS4.md)
 ### [Xbox One](Xbox%20One.md) (NOT WORKING)
-### For Light Switch (COMMING SOON)
 ### Extras:
 
 #### - [Incredibuild Crack](Extras/Incredibuild%20Crack)
@@ -34,7 +33,6 @@ Due to legel reasons i have to name the console a diffrent name, you can probabl
 #### Xbox One Guide by: [Franklin_Clinton](https://github.com/FranklinClintonDev)
 #### Xbox One SDK by: [Sorynx](https://github.com/Dbz9)
 #### How to compile PS5/Xbox Series X (Gen 9) Shaders by: [juniorbros](https://github.com/satincult8) with help of [Swaglesh](https://github.com/swaglesh)
-#### Light Switch Guide by: [juniorbros](https://github.com/satincult8)
 Without you all I could not have made this guide thank you very much.
 
 ---------------------------------------------------------------------
