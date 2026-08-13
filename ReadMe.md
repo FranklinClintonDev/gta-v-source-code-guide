@@ -4,7 +4,7 @@ The *Grand Theft Auto V: Source Code Build Guide* explains how to set up and com
 
 *This guide does not distribute or link to any leaked copy of the source code; you will need to obtain it yourself.*
 
-#### Supported game versions
+#### Supported game versions:
 
 For PC you can choose between 2 diffrent game versions:
 - v2699 - Recommended this is the version of the leaked source code.
