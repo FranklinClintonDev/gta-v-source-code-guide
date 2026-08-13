@@ -152,7 +152,7 @@ Set permissions:
 1. Extract [`v2699 - 1.61.7z`](https://pixeldrain.com/u/donYCsxq).
 2. Copy both files from this archive to the update folder in the game directory.
 
-## Getting Cracked Copies Work 
+## Fix cracked game copys not booting
 
 - Go to [`GTA V - PC Build Required Files/GTA V - Cracked Game Patch`](GTA%20V%20-%20PC%20Build%20Required%20Files/GTA%20V%20-%20Cracked%20Game%20Patch) folder  
 - Copy everything inside of it to your game folder.
