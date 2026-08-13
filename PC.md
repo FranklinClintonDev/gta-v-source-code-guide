@@ -3,7 +3,7 @@
 ## Requirements
 
 - Latest Grand Theft Auto V Files from Steam, Epic Games or Rockstar Games Launcher
-   - Cracked version do not work unless you watch [these steps.](#getting-cracked-copies-work)    
+   - Cracked version do not work unless you watch [these steps.](#fix-cracked-game-copys-not-booting)    
 - GTAVSP.7z - Source Code  
    - SHA1 Hash: `ca39323730ed644fa534a2946506d4287f92a799`
    - Password: `Mi76#b>9mRed`
