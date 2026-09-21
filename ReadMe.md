@@ -21,17 +21,17 @@ If you encounter any issues while compiling or using a tool, check the [Other Kn
 ### Extras:
 
 ---
-Tool Cracks
+### Tool Cracks
 #### - [Incredibuild Crack](Extras/Incredibuild%20Crack)
 #### - [Endorphin Crack](Extras/Endorphin%20Crack)
 
 ---
-Optional Patches
+### Optional Patches
 #### - [Optional Patches](Extras/Optional%20Patches)
    - [3rd Party Folder](Extras/Optional%20Patches/3rd%20Party%20Folder) 
    
 ---
-Other Stuff
+### Other Stuff
 #### - [How to compile *PS5/Xbox Series* X (Gen 9) Shaders](Extras/gen9-shaders.md)
 #### - [PS4 Build Tests](https://github.com/FranklinClintonDev/gta-v-source-code-guide/blob/main/Extras/ps4-debug-tests.md)
 #### - [How to run GTA VI June 2014 concept map](Extras/Run%20GTA%20VI%20Concept%20Map#readme)
