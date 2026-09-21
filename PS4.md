@@ -58,7 +58,7 @@
 1. Create a new folder anywhere you want  
 2. Inside the folder, create a folder called `gta5`  
 3. Copy all content from `GTAVSP.7z/GTAV Source` folder to `gta5`  
-4. Copy the two bat files from the [`GTA V - X Drive Batch files`](GTA%20V%20-%20X%20Drive%20Batch%20Files) folder to your new folder  
+4. Copy the two `.bat` files from the [`GTA V - X Drive Batch files`](GTA%20V%20-%20X%20Drive%20Batch%20Files) folder to your new folder  
 5. Run `Connect_X_Drive.bat`  
 6. Right-click on the gta5 folder, turn off the "Read-Only" option, then press "Apply"
 
@@ -74,7 +74,7 @@ Alternativly you can just change your drive letter of a a drive to X.
 1. Add all files from [`GTA V - Source Code Patches/PS4/src patches`](GTA%20V%20-%20Source%20Code%20Patches/PS4/src%20patches) to `X:\gta5\src\dev_ng`  
 2. Run `X:\gta5\src\dev_ng\Patch_Source.bat`
 3. Go to `X:\gta5\src\dev_ng\rage\base\src\system\main.cpp` open the file and search for `bool g_EnableRfs = true;` and change true to `false` then add `"-forceboothdd",`to the launch arguments in line 1283.
-4. Copy all folders from [`dll_patches_x.zip`](GTA%20V%20-%20Source%20Code%20Patches/tools%20patch) to `X:\gta5\tools_ng\bin`, ensuring you overwrite existing files.
+4. Copy all folders from [`dll_patches_x.zip`](GTA%20V%20-%20Source%20Code%20Patches/tools%20patch) to `X:\gta5\tools_ng\bin`, making sure to overwrite any existing files.
 5. Get [`GTA V - Source Code Patches/PS4/forceinclude/any_types.h`](GTA%20V%20-%20Source%20Code%20Patches/PS4/forceinclude/any_types.h) and put this file in `X:\gta5\src\dev_ng\rage\base\src\forceinclude\templates`.
 6. Run `X:\gta5\src\dev_ng\All_In_One_Install_Environment_Variables.bat`  
 7. Run `X:\gta5\src\dev_ng\setenv.bat`
