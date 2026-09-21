@@ -41,12 +41,12 @@ If you encounter any issues while compiling or using a tool, check the [Other Kn
 ### Credits:
 
 #### PC Guide by: [yungDoom](https://github.com/yungDooom) and [Franklin_Clinton](https://github.com/FranklinClintonDev).
-#### PC Patches by: [Troplo](https://github.com/Troplo)
+#### PC Patches by: [Troplo](https://github.com/Troplo).
 #### PS4 Guide by: [Sorynx](https://github.com/Dbz9), [Franklin_Clinton](https://github.com/FranklinClintonDev), [juniorbros](https://github.com/satincult8), Mojso, [greensci](https://github.com/greensci). 
-#### PS4 Patches, SDKs and support by [Jorby](https://github.com/coldreactor64)
-#### Xbox One Guide by: [Franklin_Clinton](https://github.com/FranklinClintonDev)
-#### Xbox One SDK by: [Sorynx](https://github.com/Dbz9)
-#### How to compile PS5/Xbox Series X (Gen 9) Shaders by: [juniorbros](https://github.com/satincult8) with help of [Swaglesh](https://github.com/swaglesh)
+#### PS4 Patches, SDKs and support by [Jorby](https://github.com/coldreactor64).
+#### Xbox One Guide by: [Franklin_Clinton](https://github.com/FranklinClintonDev).
+#### Xbox One SDK by: [Sorynx](https://github.com/Dbz9).
+#### How to compile PS5/Xbox Series X (Gen 9) Shaders by: [juniorbros](https://github.com/satincult8) with help of [Swaglesh](https://github.com/swaglesh).
 #### How to run GTA VI June 2014 concept map by: [Franklin_Clinton](https://github.com/FranklinClintonDev), [dky4](https://github.com/dky4), [Nostalgen](https://github.com/Nostalgen), rollschuh2282 and [milliethompson](https://github.com/milliethompson/) also a big thanks to anyone in the community that helped create the patches.
 Without you all I could not have made this guide thank you very much.
 
