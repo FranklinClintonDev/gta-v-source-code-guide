@@ -31,7 +31,7 @@ Optional Patches
 Other Stuff
 #### - [How to compile *PS5/Xbox Series* X (Gen 9) Shaders](Extras/gen9-shaders.md)
 #### - [PS4 Build Tests](https://github.com/FranklinClintonDev/gta-v-source-code-guide/blob/main/Extras/ps4-debug-tests.md)
-#### - [How to run GTA VI June 2014 concept map](Extras/run-gta-vi-concept-map.md)
+#### - [How to run GTA VI June 2014 concept map](Extras/Run%20GTA%20VI%20Concept%20Map#readme)
 ---
 
 ### Credits:
@@ -43,7 +43,7 @@ Other Stuff
 #### Xbox One Guide by: [Franklin_Clinton](https://github.com/FranklinClintonDev)
 #### Xbox One SDK by: [Sorynx](https://github.com/Dbz9)
 #### How to compile PS5/Xbox Series X (Gen 9) Shaders by: [juniorbros](https://github.com/satincult8) with help of [Swaglesh](https://github.com/swaglesh)
-#### How to run GTA VI June 2014 concept map by: [Franklin_Clinton](https://github.com/FranklinClintonDev) with the help from Nostalgen, rollschuh2282 and ProudWNBAFan from Discord also big thanks to anyone in the community that helped.
+#### How to run GTA VI June 2014 concept map by: [Franklin_Clinton](https://github.com/FranklinClintonDev) with the help from rse4, Nostalgen, rollschuh2282 and ProudWNBAFan from Discord also big thanks to anyone in the community that helped create the patches.
 Without you all I could not have made this guide thank you very much.
 
 ---------------------------------------------------------------------
