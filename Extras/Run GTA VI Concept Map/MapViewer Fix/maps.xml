@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<maps>
+  <map>
+    <displayname>GTA V - Hi Res Colour</displayname>
+    <source>.\Data\gtav_colour.png</source>
+    <thumb>.\Data\gtav_colour_thumb.png</thumb>
+    <bounds>
+      <lowerleft x="-3924" y="-5027" />
+      <upperright x="5076" y="8473" />
+    </bounds>
+  </map>
+  <map>
+    <displayname>GTA V - Including Prologue</displayname>
+    <source>.\Data\gtav_prologue.jpg</source>
+    <thumb>.\Data\gtav_prologue_thumb.png</thumb>
+    <bounds>
+      <lowerleft x="-3500" y="-7000" />
+      <upperright x="7300" y="7500" />
+    </bounds>
+  </map>
+  <map>
+	<displayname>GTA VI env_test</displayname>
+    <source>.\Data\gtavi_env_test.jpg</source>
+    <thumb>.\Data\gtavi_env_test_thumb.png</thumb>
+    <bounds>
+      <lowerleft x="-12330" y="-20322" />
+      <upperright x="16770" y="9018" />
+    </bounds>
+  </map>
+</maps>
