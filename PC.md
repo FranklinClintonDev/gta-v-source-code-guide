@@ -294,6 +294,21 @@ error LNK1181: cannot open input file x:\gta5\src\dev_ng\objects\game3_lib_2012_
 Solution grab a new `X:\gta5\src\dev_ng\game\scene\FileLoader.cpp` from `GTAVSP.7z` and replace with current one.
   - Note that if a file gets a error while compiling do the same and grab one from `GTAVSP.7z` and replace it with the current one, but is not guaranteed that it may fixed the error.
 
+### Fixing DLL Loading Issues for Tools
+
+If a tool reports that a DLL file is missing, cannot be loaded, or any other dll related error, the DLL may simply be blocked by Windows.
+
+To fix this:
+
+1. Navigate to the location of the DLL file.
+2. Right-click the DLL file and select **Properties**.
+3. In the **General** tab, look for the **Security** section at the bottom.
+4. If you see an **Unblock** checkbox, check it.
+5. Click **Apply**, then **OK**.
+6. Try using the tool again.
+
+In many cases, this resolves DLL loading errors caused by Windows blocking files downloaded from the internet.
+
 
 
 
