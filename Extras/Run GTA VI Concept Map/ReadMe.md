@@ -30,7 +30,7 @@
     - Then run `GTA_RAGE_Crash_Hotfix_NoBackup.exe`. If you want to revert the changes, run `GTA_RAGE_Crash_Hotfix_Revert.exe` you can delete the `.exe` files after its installed.
     - If you revert the changes, it will also remove `-nocloth` from `X:\gta5\build\dev_ng\args.txt`.
     
-## Booting the Game
+## Booting the game
 
 To boot the game, just launch `X:\gta5\build\dev_ng\game_win64_bankrelease.bat`.
  - It might take a long time to load.
