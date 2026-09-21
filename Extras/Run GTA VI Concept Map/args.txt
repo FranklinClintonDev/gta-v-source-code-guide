@@ -1,1 +1,1 @@
--rag -raguseOwnWindow -noSocialClub -nonetlogs -nokeyboardhook -skipLandingPage
+-rag -raguseOwnWindow -noSocialClub -nonetlogs -nokeyboardhook -skipLandingPage -level env_test -nocloth
