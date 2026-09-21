@@ -245,6 +245,13 @@ EXENAME.exe -noSocialClub -nokeyboardhook -nonetlogs -rag -ragUseOwnWindow
 1. Launch the RAG with `X:\gta5\tools_ng\bin\rag\rag.exe”`. I recommend creating a shortcut in the GTA5 directory.
 2. Then Lauch the game with your `.bat` file
 
+## Controls and Launch Parameters
+
+- [PC debug keys](GTA%20V%20-%20PC%20Build%20Required%20Files/GTA%20V%20-%20Source%20Code%20Build%20Controls/Source%20Code%20Build%20Controls/debugkeys.md)
+- [PC debug keyboard overview](GTA%20V%20-%20PC%20Build%20Required%20Files/GTA%20V%20-%20Source%20Code%20Build%20Controls/Source%20Code%20Build%20Controls/Keyboard_Overview.pdf)
+- [PC debug launch parameters](GTA%20V%20-%20PC%20Build%20Required%20Files/GTA%20V%20-%20Source%20Code%20Build%20Controls/Source%20Code%20Build%20Launch%20Parameters/LAUNCHPARAMS_GTAV.txt)
+- [PC retail launch parameters](GTA%20V%20-%20PC%20Build%20Required%20Files/GTA%20V%20-%20Source%20Code%20Build%20Controls/Normal%20Launch%20Parameters/Launch%20Parameters.md)
+
 ## Other Known Issues
 
 ### Fatal Error: Unable to create default effect 'common:/shaders/im', cannot continue.
