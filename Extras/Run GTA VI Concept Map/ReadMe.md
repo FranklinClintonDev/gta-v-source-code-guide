@@ -3,7 +3,7 @@
 ## Requirements
 - You just need the full "P1" folder from the leaked torrent.
 
-*This guide does not distribute or link to any leaked copy of the source code; you will need to obtain it yourself.*
+*This guide does not distribute or link to any leaked copy of the source code or assets; you will need to obtain it yourself.*
 
 ## Creating X:\ Drive
 1. Copy the two `.bat` files from the [`GTA V - X Drive Batch files`](../../GTA%20V%20-%20X%20Drive%20Batch%20Files) folder to your `P1` folder  
