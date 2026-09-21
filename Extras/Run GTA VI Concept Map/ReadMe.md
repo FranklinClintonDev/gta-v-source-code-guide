@@ -12,7 +12,7 @@
 4. Run `X:\gta5\src\dev_ng\All_In_One_Install_Environment_Variables.bat`  
 5. Run `X:\gta5\src\dev_ng\setenv.bat`
 
-## Patching Tools
+## Patching tools
 -  Copy all folders from [`dll_patches_x.zip`](../GTA%20V%20-%20Source%20Code%20Patches/tools%20patch) to `X:\gta5\tools_ng\bin`, making sure to overwrite any existing files.
 
 *This is optional, but I recommend it. You can patch RAG to make it work, or remove it from startup.*
