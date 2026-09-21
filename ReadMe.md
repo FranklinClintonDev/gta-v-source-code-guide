@@ -16,7 +16,7 @@ The PS4 game version is v1.46.
 ### [For PS4](PS4.md)
 ### [Xbox One](Xbox%20One.md) (NOT WORKING)
 
-If you encounter any issues while compiling or using a tool, check the [Other Known Issues](PC.md#other-known-issues) section first.
+If you encounter any issues while compiling or using a tool, check the [Other Known Issues](PC.md#other-known-issues) section.
 
 ### Extras:
 
