@@ -69,7 +69,7 @@ Alternativly you can just change your drive letter of a a drive to X.
    - If you change your mind later, you will need to delete your current source code copy and set up a new one.  
 4. Run `X:\gta5\src\dev_ng\All_In_One_Install_Environment_Variables.bat`  
 5. Run `X:\gta5\src\dev_ng\setenv.bat`
-6. Copy all folders from [`dll_patches_x.zip`](GTA%20V%20-%20Source%20Code%20Patches/tools%20patch) to `X:\gta5\tools_ng\bin`, ensuring you overwrite existing files.
+6. Copy all folders from [`dll_patches_x.zip`](GTA%20V%20-%20Source%20Code%20Patches/tools%20patch) to `X:\gta5\tools_ng\bin`, making sure to overwrite any existing files.
 
 ## Building Game Binaries/Executable
 
