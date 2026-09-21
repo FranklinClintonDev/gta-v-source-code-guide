@@ -33,9 +33,9 @@ If you encounter any issues while compiling or using a tool, check the [Other Kn
    
 
 ##### Other Stuff
+#### - [How to run GTA VI June 2014 concept map](Extras/Run%20GTA%20VI%20Concept%20Map#readme)
 #### - [How to compile *PS5/Xbox Series* X (Gen 9) Shaders](Extras/gen9-shaders.md)
 #### - [PS4 Build Tests](https://github.com/FranklinClintonDev/gta-v-source-code-guide/blob/main/Extras/ps4-debug-tests.md)
-#### - [How to run GTA VI June 2014 concept map](Extras/Run%20GTA%20VI%20Concept%20Map#readme)
 
 ---
 ### Credits:
