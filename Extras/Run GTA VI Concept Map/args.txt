@@ -1,0 +1,1 @@
+-rag -raguseOwnWindow -noSocialClub -nonetlogs -nokeyboardhook -skipLandingPage

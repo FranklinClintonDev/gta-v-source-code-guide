@@ -17,12 +17,22 @@ The PS4 game version is v1.46.
 ### [Xbox One](Xbox%20One.md) (NOT WORKING)
 ### Extras:
 
+---
+Tool Cracks
 #### - [Incredibuild Crack](Extras/Incredibuild%20Crack)
 #### - [Endorphin Crack](Extras/Endorphin%20Crack)
+
+---
+Optional Patches
 #### - [Optional Patches](Extras/Optional%20Patches)
    - [3rd Party Folder](Extras/Optional%20Patches/3rd%20Party%20Folder) 
-#### - [How to compile *PS5/Xbox Series* X (Gen 9) Shaders](Extras/Gen9-Shaders.md)
+   
+---
+Other Stuff
+#### - [How to compile *PS5/Xbox Series* X (Gen 9) Shaders](Extras/gen9-shaders.md)
 #### - [PS4 Build Tests](https://github.com/FranklinClintonDev/gta-v-source-code-guide/blob/main/Extras/ps4-debug-tests.md)
+#### - [How to run GTA VI June 2014 concept map](Extras/run-gta-vi-concept-map.md)
+---
 
 ### Credits:
 
