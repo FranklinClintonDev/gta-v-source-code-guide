@@ -12,9 +12,9 @@ For PC you can choose between 2 diffrent game versions:
 
 The PS4 game version is v1.46.
 
-### [For PC](PC.md)
-### [For PS4](PS4.md)
-### [Xbox One](Xbox%20One.md) (NOT WORKING)
+### - [For PC](PC.md)
+### - [For PS4](PS4.md)
+### - [Xbox One](Xbox%20One.md) (NOT WORKING)
 
 If you encounter any issues while compiling or using a tool, check the [Other Known Issues](PC.md#other-known-issues) section.
 
