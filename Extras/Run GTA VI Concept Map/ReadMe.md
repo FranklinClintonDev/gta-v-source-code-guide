@@ -19,7 +19,7 @@
 
 ## Patching the build
 - Add [`this file`](args.txt) to `X:\gta5\build\dev_ng\`.
-    - This adds the required boot arguments. You can remove `-rag` and `-raguseOwnWindow` if you don't want to use the rag.
+    - This adds the required boot arguments. You can remove `-rag` and `-raguseOwnWindow` if you don't want to use the RAG.
 - Add [`this file`](gameconfig.xml) to `X:\gta5\build\dev_ng\common\data`
     - This prevents the game from crashing because of a dummy object.
 - Replace `images.meta` in `X:\gta5\build\dev_ng\common\data\levels\env_test` with [`this one`](images.meta).
