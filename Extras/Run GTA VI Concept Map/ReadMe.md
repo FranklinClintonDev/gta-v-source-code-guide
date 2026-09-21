@@ -2,6 +2,7 @@
 
 ## Requirements
 - You just need the full "P1" folder from the leaked torrent.
+- Make sure to allways create backups before editing anything.
 
 *This guide does not distribute or link to any leaked copy of the source code or assets; you will need to obtain it yourself.*
 
