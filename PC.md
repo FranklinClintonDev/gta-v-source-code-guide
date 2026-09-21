@@ -52,7 +52,7 @@
 1. Create a new folder anywhere you want  
 2. Inside the folder, create a folder called `gta5`  
 3. Copy all content from `GTAVSP.7z/GTAV Source` folder to `gta5`  
-4. Copy the two bat files from the [`GTA V - X Drive Batch files`](GTA%20V%20-%20X%20Drive%20Batch%20Files) folder to your new folder  
+4. Copy the two `.bat` files from the [`GTA V - X Drive Batch files`](GTA%20V%20-%20X%20Drive%20Batch%20Files) folder to your new folder  
 5. Run `Connect_X_Drive.bat`  
 6. Right-click on the gta5 folder, turn off the "Read-Only" option, then press "Apply"
 
@@ -64,7 +64,7 @@ Alternativly you can just change your drive letter of a a drive to X.
 2. Choose if you want  
    - `patch_source_v2699.bat` RECOMMENDED – Standard version 2699 build, fully compatible with scripts.  
    - Or `patch_source_RETAIL_ONLY_v3407-3521.bat` Use this for a retail-like build (supports game versions 3407 to 3521, and possibly some later versions). NOTE: This version does NOT support scripts or debugging tools.  
-3. Run your chosen .bat file.  
+3. Run your chosen `.bat` file.  
    - WARNING: This action is NOT reversible.  
    - If you change your mind later, you will need to delete your current source code copy and set up a new one.  
 4. Run `X:\gta5\src\dev_ng\All_In_One_Install_Environment_Variables.bat`  
