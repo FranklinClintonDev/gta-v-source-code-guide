@@ -303,9 +303,9 @@ Solution grab a new `X:\gta5\src\dev_ng\game\scene\FileLoader.cpp` from `GTAVSP.
 
 ### Fixing DLL Loading Issues for Tools
 
-If a tool reports that a DLL file is missing, cannot be loaded, or any other dll related error, the DLL may simply be blocked by Windows.
+If a tool reports that a DLL file is missing, cannot be loaded, or any other dll related error, the DLL may simply be blocked by the Windows 11 zone information preservation feature.
 
-To fix this:
+To fix it for one specific file:
 
 1. Navigate to the location of the DLL file.
 2. Right-click the DLL file and select **Properties**.
@@ -314,7 +314,14 @@ To fix this:
 5. Click **Apply**, then **OK**.
 6. Try using the tool again.
 
-In many cases, this resolves DLL loading errors caused by Windows blocking files downloaded from the internet.
+Disbale the feature on all DLL from the X drive (Recommended):
+
+1. Open PowerShell as Administrator and run :
+```
+Get-ChildItem "X:\gta5" -Recurse | Unblock-File   
+```
+
+In many cases, this resolves DLL loading errors caused by the 11 zone information preservation feature.
 
 
 
