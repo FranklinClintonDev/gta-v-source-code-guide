@@ -188,7 +188,8 @@ You should now see what you're building, and at the bottom left of the window, y
 
 ## Building Game Scripts
 
-#### Reminder: Scripts do not work with Retail patch  
+#### Reminder: Scripts do not work with Retail patch 
+### If your Incredibuild trail is over use [this](Extras/Incredibuild%20Crack/ReadMe.md).
 1. Open Command Prompt and Run the following commands:
 ```batch
 X:
