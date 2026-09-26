@@ -148,6 +148,7 @@ Output folder is `X:\gta5\titleupdate\dev_ng\common\shaders`
 
 ## Building Scripts:
 
+#### If your Incredibuild trail is over use [this](Extras/Incredibuild%20Crack/ReadMe.md).
 1. To build scripts, run this in command prompt  
 ```batch
 X:
