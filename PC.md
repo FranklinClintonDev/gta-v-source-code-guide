@@ -314,14 +314,14 @@ To fix it for one specific file:
 5. Click **Apply**, then **OK**.
 6. Try using the tool again.
 
-Disbale the feature on all files from the X drive (Recommended):
+Disbale the feature on all files from the X drive **(Recommended)**:
 
 1. Open PowerShell as Administrator and run :
 ```
 Get-ChildItem "X:\gta5" -Recurse | Unblock-File   
 ```
 
-In many cases, this resolves DLL loading errors caused by the 11 zone information preservation feature.
+In many cases, this resolves DLL loading errors caused by the Windows 11 zone information preservation feature.
 
 
 
