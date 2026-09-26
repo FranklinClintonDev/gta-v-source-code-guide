@@ -201,12 +201,15 @@ ragScriptEditor
    - Optinaly you can also compile them as Debug.
 3. Select `Compiling > Intellibuild > Build Project` and wait until the compiling process finishes 
    - This will take multiple hours, especially in a virtual machine.
-4. Run OpenIV, Select `Windows` under `Grand Theft Auto V` 
-5. Select the game folder and click `Continue` 
-6. Open `<Game Directory>\update\update2.rpf\x64\levels\gta5\script` 
-7. Delete `script.rpf`
-8. Click the `Edit mode` button, and copy `X:\gta5\titleupdate\dev_ng\x64\levels\gta5\script\script.rpf` to the OpenIV window.
-9. Get [`GTA V - PC Build Required Files
+   
+## Patching Game Scripts
+
+1. Run OpenIV, Select `Windows` under `Grand Theft Auto V` 
+2. Select the game directory and click `Continue` 
+3. Open `<game directory>\update\update2.rpf\x64\levels\gta5\script` 
+4. Delete `script.rpf`
+5. Click the `Edit mode` button, and copy `X:\gta5\titleupdate\dev_ng\x64\levels\gta5\script\script.rpf` to the OpenIV window.
+6. Download and Extract [`GTA V - PC Build Required Files
 /GTA V - Archive Fix/ArchiveFix.7z`](GTA%20V%20-%20PC%20Build%20Required%20Files/GTA%20V%20-%20Archive%20Fix/ArchiveFix.7z). Then drag and drop the edited rpf on `ArchiveFix.exe`.
 
 ## Running the game
