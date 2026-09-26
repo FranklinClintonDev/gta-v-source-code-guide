@@ -314,7 +314,7 @@ To fix it for one specific file:
 5. Click **Apply**, then **OK**.
 6. Try using the tool again.
 
-Disbale the feature on all DLL from the X drive (Recommended):
+Disbale the feature on all files from the X drive (Recommended):
 
 1. Open PowerShell as Administrator and run :
 ```
