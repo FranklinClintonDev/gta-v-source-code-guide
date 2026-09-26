@@ -318,8 +318,10 @@ Disbale the feature on all files from the X drive **(Recommended)**:
 
 1. Open PowerShell as Administrator and run :
 ```
-Get-ChildItem "X:\gta5" -Recurse | Unblock-File   
+Get-ChildItem "PATH TO YOUR gta5 FOLDER" -Recurse | Unblock-File   
 ```
+
+You have to use the path to your `gta5` folder. It cannot include the virtual X: drive you need to use the path to the folder on your actual hard drive.'
 
 In many cases, this resolves DLL loading errors caused by the Windows 11 zone information preservation feature.
 
