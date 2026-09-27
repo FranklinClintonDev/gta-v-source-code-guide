@@ -2,7 +2,7 @@
 
 The *Grand Theft Auto V: Source Code Build Guide* explains how to set up and compile the game's source code, apply patches, install necessary tools, build shaders and scripts, and includes troubleshooting tips.
 
-### The guide also covers setting up the June 2014 GTA V build containing the GTA VI conecept map.
+#### The guide also covers setting up the June 2014 GTA V build containing the GTA VI conecept map.
 
 *This guide does not distribute or link to any leaked copy of the source code or assets; you will need to obtain it yourself.*
 
