@@ -164,7 +164,7 @@ ragScriptEditor
    - This will take multiple hours, especially in a virtual machine.
    - Output folder is: `X:\gta5\titleupdate\dev_ng\ps4\levels\gta5\script`.
 
-## Patch Game
+## Patch the Game
  - You will need the [Base Game pkg](https://1fichier.com/?owilwri8303p58o3x72u&af=3662447%20) and [Update pkg](https://1fichier.com/?xdiqoe5n3c6mqgixa0ns&af=3662447) on your PC.
  - Make sure you have the unmodifyed [Base Game pkg](https://1fichier.com/?owilwri8303p58o3x72u&af=3662447%20) installed on your PS4.
  - Make sure you dont have any game updates installed.
