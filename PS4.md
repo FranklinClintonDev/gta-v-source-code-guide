@@ -9,11 +9,10 @@
 - [7-Zip](https://www.7-zip.org/)
 - [Visual Studio 2017](https://archive.org/details/VisualStudio2017RTMISOX8664)
 - [GTA V Source Code Toolset](https://pixeldrain.com/u/2XdabBq3)
-- [VS 2017](https://archive.org/details/VisualStudio2017RTMISOX8664)
 - [PS4 SDK 1.200/2.500](https://pixeldrain.com/u/ffVDXJos)
 - A Jailbroken PS4 is required for running the build.
    - You can find tutorials by modded warfare on how to do it. 
-   - Before you even try this make sure your PS4 Firmware is 9:00-11:00, maybe even 12:00 but not recommended 
+   - Before you even try this make sure your PS4 Firmware is 9:00-11:00, maybe even 12:00 but it’s not recommended 
 
 ## Installing the Toolset
 
