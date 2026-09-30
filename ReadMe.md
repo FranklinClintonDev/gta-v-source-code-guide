@@ -2,7 +2,7 @@
 
 The *Grand Theft Auto V: Source Code Build Guide* explains how to set up and compile the game's source code, apply patches, install necessary tools, build shaders and scripts, and includes troubleshooting tips.
 
-#### The guide also covers setting up the June 2014 GTA V build containing the GTA VI concept map.
+#### The guide also covers [setting up the June 2014 GTA V build](Extras/Run%20GTA%20VI%20Concept%20Map#readme) containing the GTA VI concept map.
 
 *This guide does not distribute or link to any leaked copy of the source code or assets; you will need to obtain it yourself.*
 
@@ -39,7 +39,7 @@ You can also check out the controls and launch parameters for PC [here](PC.md#co
 ##### Other Stuff
 #### - [How to run GTA VI June 2014 concept map](Extras/Run%20GTA%20VI%20Concept%20Map#readme)
 #### - [How to compile *PS5/Xbox Series* X (Gen 9) Shaders](Extras/gen9-shaders.md)
-#### - [PS4 Build Tests](https://github.com/FranklinClintonDev/gta-v-source-code-guide/blob/main/Extras/ps4-debug-tests.md)
+#### - [PS4 Build Tests](Extras/ps4-debug-tests.md)
 
 ---
 ### Credits:
