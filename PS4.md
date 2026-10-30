@@ -1,7 +1,28 @@
 # Grand Theft Auto V: Source Code Build Guide *For PS4*
 
+<details>
+<summary><strong>Table of Contents</strong></summary>
+
+* [Requirements](#requirements)
+* [Installing the Toolset](#installing-the-toolset)
+* [Setup Visual Studio 2017](#setup-visual-stuido-2017)
+* [Creating X:\ Drive](#creating-x-drive)
+* [Setting up the ORBIS SDK](#setting-up-the-orbis-sdk)
+* [Patching Source Code and Tools](#patching-source-code-and-tools)
+* [Building Executable](#building-executable)
+* [Building Shaders](#building-shaders)
+  * [How to Build Low Quality Shaders](#how-to-build-low-quality-shaders-optional)
+* [Building Scripts](#building-scripts)
+* [Patch the Game](#patch-the-game)
+* [Build Update pkg](#compile-update-pkg)
+* [How do the hard coded arguments work?](#how-do-the-hard-coded-arguments-work)
+* [Running RAG](#running-rag)
+
+</details>
+
 ## Requirements:
-- [GTA V for PS4](https://1fichier.com/?owilwri8303p58o3x72u&af=3662447%20) 
+- Use separate, fresh copies of the source code for PC, PC Retail Patches, Xbox One, and PS4, as the patches may conflict with one another.
+- [Grand Theft Auto V for PS4](https://1fichier.com/?owilwri8303p58o3x72u&af=3662447%20) 
     - [Update RPF to v1.46](https://1fichier.com/?xdiqoe5n3c6mqgixa0ns&af=3662447)
 - GTAVSP.7z - Source Code  
    - SHA1 Hash: `ca39323730ed644fa534a2946506d4287f92a799`
@@ -43,7 +64,7 @@
      - Reinstall DirectX SDK (June 2010)
    - At `Help Improve the DirectX SDK` select `No, I would not like to participate`
 
-#### Helix-Core-Server
+#### Helix-Core-Server (optional only required for some tools)
 
    - Don't change the port
    - For path, just select any empty folder
@@ -63,10 +84,10 @@
 
 Alternativly you can just change your drive letter of a a drive to X.
 
-## Setup ORBIS SDK
+## Setting up the ORBIS SDK
 1. Get [`ORBIS SDKs.7z`](https://pixeldrain.com/u/ffVDXJos).
 2. Put the `1.700` and `2.500` folders from [`ORBIS SDKs.7z`](https://pixeldrain.com/u/ffVDXJos) in: `C:\Program Files (x86)\SCE\ORBIS SDKs`.
-3. Run [`PS4 SDK ENV Installer(run as admin).bat`](GTA%20V%20-%20PS4%20Build%20Required%20Files/GTA%20V%20-%20PS4%20SDK%20Required%20Files/PS4%20SDK%20ENV%20Installer.bat) as administrator.
+3. Run [`PS4 SDK ENV Installer.bat`](GTA%20V%20-%20PS4%20Build%20Required%20Files/GTA%20V%20-%20PS4%20SDK%20Required%20Files/PS4%20SDK%20ENV%20Installer.bat) as administrator.
 4. Run [`VsiInstallerPS4.exe`](GTA%20V%20-%20PS4%20Build%20Required%20Files/GTA%20V%20-%20PS4%20SDK%20Required%20Files/VsiInstallerPS4.exe) and select VS2017.
 
 ## Patching Source Code and Tools
@@ -79,7 +100,10 @@ Alternativly you can just change your drive letter of a a drive to X.
 7. Run `X:\gta5\src\dev_ng\setenv.bat`
 8. Run `X:\gta5\src\dev_ng\rage\base\src\forceinclude\templates\makeheaders.bat`.
 
-## Building Binary
+## Building Executable
+
+Check out [known issues for building the executable](Known-Issues.md#building-executable)
+
 1.  Run `X:\gta5\src\dev_ng\game\VS_Project\load_sln_unity_2012.bat` with Visual Studio 2017.
 2.  At the top, change from `Win32` to `ORBIS` and use `BankRelease`.
 
@@ -118,34 +142,29 @@ Alternativly you can just change your drive letter of a a drive to X.
 
 ## Building Shaders
 
+Check out [known issues for building shaders](Known-Issues.md#building-shaders)
+
 Optional: For multicore compilation, go to `X:\gta5\tools_ng\etc\RageShaderManager` and, in all .xml files, change every instance of `SingleCore=` to `"false"`.
 
-1. Run `X:\gta5\src\dev_ng\game\VS_Project\load_sln_unity_2012.bat` with Visual Studio 2017.
-2. fter that, switch the platform from `Win32` to `ORBIS`.
-3. Under `Shaders`, right click the `shaders_rc` project and click `Rebuild`
-- (OPTIONAL) Build low quality shaders
-  1. Right click the `shaders_rc` project and click `Properties`
-  2. Select `Configuration Properties > NMake`
-  3. Under `General`, change all command lines from ending with `win32_40.bat` to ending with `win32_40_lq.bat`, then click `Apply` and `OK`
-  4. Rebuild shaders and wait for it to finish
-
+1. Run `X:\gta5\src\dev_ng\game\VS_Project\load_sln_unity_2012.bat`
+2. Under `Shaders`, right click the `shaders_rc` project and click `Build`
+---
+#### How to Build low quality shaders (optional)
+1. Right click the `shaders_rc` project and click `Properties`
+2. Select `Configuration Properties > NMake`
+3. Under `General`, change all command lines from ending with `win32_40.bat` to ending with `win32_40_lq.bat`, then click `Apply` and `OK`
+4. Rebuild shaders and wait for it to finish
+---
 To see the progress and watch its status, in the taskbar, open the Overflow Menu (the small ^ in the taskbar on the right).
 Find `IncrediBuild Agent` (the one with a green arrow), right-click it, and press `Build Monitor`.
 In `Build Monitor`, on the left press the icon at the top that should say `Progress`.
 You should now see what you're building, and at the bottom left of the window, you'll see a percentage of how complete it is out of 100%.
 
-Output folder is `X:\gta5\titleupdate\dev_ng\common\shaders`
-
-#### Known errors:
-- If your VM or Computer start lagging, freezing or crashing when trying to build try this:
-  - Open `Incredibuild Agent Settings`
-  - Under `Visual Studio Builds` / `General` lower the `Max. number of CPU/Cores used for parallel linking`
-
-<div style="text-align:center;">
-<img src="IMG/09.png" alt="image" style="width:50%;">
-</div>
+3. Copy `X:\gta5\titleupdate\dev_ng\common` to the game directory.
 
 ## Building Scripts:
+
+Check out [known issues for building scripts](Known-Issues.md#building-scripts)
 
 #### If your Incredibuild trail is over use [this](Extras/Incredibuild%20Crack/ReadMe.md).
 1. To build scripts, run this in command prompt  
@@ -164,6 +183,9 @@ ragScriptEditor
    - Output folder is: `X:\gta5\titleupdate\dev_ng\ps4\levels\gta5\script`.
 
 ## Patch the Game
+
+Check out [known issues for the PS4 Patch Builder](Known-Issues.md#ps4-patch-builder)
+
  - You will need the [Base Game pkg](https://1fichier.com/?owilwri8303p58o3x72u&af=3662447%20) and [Update pkg](https://1fichier.com/?xdiqoe5n3c6mqgixa0ns&af=3662447) on your PC.
  - Make sure you have the unmodifyed [Base Game pkg](https://1fichier.com/?owilwri8303p58o3x72u&af=3662447%20) installed on your PS4.
  - Make sure you dont have any game updates installed.
@@ -185,7 +207,10 @@ ragScriptEditor
    - You can extarct it yourself from the [Base Game pkg](https://1fichier.com/?owilwri8303p58o3x72u&af=3662447%20) or [get it here](GTA%20V%20-%20PS4%20Build%20Required%20Files/GTA%20V%20-%20PS4%20Base%20Game%20common.rpf/common.rpf).
 11. Place all 3 folders of [`Update pkg Fixes.7z`](GTA%20V%20-%20PS4%20Build%20Required%20Files/GTA%20V%20-%20PS4%20Update%20pkg%20fixes/Update%20pkg%20Fixes.7z) in `Image0`.
 
-## Compile Update pkg
+## Build Update pkg
+
+Check out [known issues for the PS4 Patch Builder](Known-Issues.md#ps4-patch-builder) 
+
 1. Open PS4 Patch Builder.
 2. At `Project Location` open your `Image0` folder.
 3. At `Package Settings` open the Base PKG.
@@ -204,41 +229,13 @@ ragScriptEditor
 ## How do the hard coded arguments work?
 
 - They are hard coded in the Eboot.bin 
-- The source code stores them in `X:\gta5\src\dev_ng\rage\base\src\system\main.cpp` 
-  under line 1283 there you can also add them there (see picture) 
+- The source code stores them in `X:\gta5\src\dev_ng\rage\base\src\system\main.cpp` under line 1283 there you can also add them there (see picture) 
 - Always add them at the top and keep the structure.
 - You can find a list of them we made [here](GTA%20V%20-%20PS4%20Build%20Required%20Files/GTA%20V%20-%20PS4%20Hardcoded%20Arguments/PS4%20Hardcoded%20Arguments.md). It is probably not all of them.
 
 <div style="text-align:center;">
 <img src="IMG/15.png" alt="image" style="width:50%;">
 </div
-
-----------------------------------------------------
-
-## Other Known Issues
-
-### Compileing pkg files Error file could not be opened/written to.
-1. Error file could not be opened/written to.
-   - You don't have enough space or, The file is corrupt, please extract the file again.
-
-### Network Related Errors in Visual Studio (Optional)
-*ONLY DO THIS IF YOU REALLY HAVE NETWORK RELATED ISSUES THESE ARE RARE*
-
-1. Download the [Network Fix](GTA%20V%20-%20Source%20Code%20Patches/network%20fix%20(optional)).
-
-2. Find out your IPv4 Address:
-- **In Windows 11**: 
-  Settings → Network & Internet → Advanced Network Settings. Select the Network Adapter you're using and press **View Additional Properties**.  
-  Note down your IPv4 Address.
-
-- **In Windows 10**:  
-  Navigate to Settings → Network & Internet → Change Adapter Options. Select the Network Adapter you're using, right-click it, and press **Details**.  
-  Note down your IPv4 Address.
-
-3. Replace `PUT-IP-HERE` with your IPv4 Address in `studios.meta` and `rag.meta`
-4. Move `studios.meta` and `rag.meta` to `X:\gta5\tools_ng\etc\globals`
-
-### Broken Render Distance - This is due to some errors in the render distance code but if you are a decent coder, you could fix it.
 
 ----------------------------------------------------
 

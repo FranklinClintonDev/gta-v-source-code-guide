@@ -6,7 +6,7 @@ The *Grand Theft Auto V: Source Code Build Guide* explains how to set up and com
 
 *This guide does not distribute or link to any leaked copy of the source code or assets; you will need to obtain it yourself.*
 
-#### Supported game versions:
+### Supported game versions:
 
 For PC you can choose between 2 diffrent game versions:
 - v2699 - Recommended this is the version of the leaked source code.
@@ -16,11 +16,9 @@ The PS4 game version is v1.46.
 
 ### - [For PC](PC.md)
 ### - [For PS4](PS4.md)
-### - [Xbox One](Xbox%20One.md) (NOT WORKING)
+### - [Xbox One](Xbox%20One.md)
 
-If you encounter any issues while compiling or using a tool, check the [Other Known Issues](PC.md#other-known-issues) section.
-
-You can also check out the controls and launch parameters for PC [here](PC.md#controls-and-launch-parameters).
+### - Also check the [list of known issues](Known-Issues.md), controls and launch parameters for PC [here](PC.md#controls-and-launch-parameters).
 
 ---
 ### Extras:
@@ -32,9 +30,8 @@ You can also check out the controls and launch parameters for PC [here](PC.md#co
 
 
 ##### Optional Patches
-#### - [Optional Patches](Extras/Optional%20Patches)
-   - [3rd Party Folder](Extras/Optional%20Patches/3rd%20Party%20Folder) 
-   
+#### - [Optional Patches](Extras/Optional%20Patches) 
+
 
 ##### Other Stuff
 #### - [How to run GTA VI June 2014 concept map](Extras/Run%20GTA%20VI%20Concept%20Map#readme)
@@ -46,9 +43,9 @@ You can also check out the controls and launch parameters for PC [here](PC.md#co
 
 #### PC Guide by: [yungDoom](https://github.com/yungDooom) and [Franklin_Clinton](https://github.com/FranklinClintonDev).
 #### PC Patches by: [Troplo](https://github.com/Troplo).
-#### PS4 Guide by: [Sorynx](https://github.com/Dbz9), [Franklin_Clinton](https://github.com/FranklinClintonDev), [juniorbros](https://github.com/satincult8), Mojso, [greensci](https://github.com/greensci). 
+#### PS4 Guide by: [Sorynx](https://github.com/Dbz9), [Franklin_Clinton](https://github.com/FranklinClintonDev), Mojso, [greensci](https://github.com/greensci), [juniorbros](https://github.com/satincult8).
 #### PS4 Patches, SDKs and support by [Jorby](https://github.com/coldreactor64).
-#### Xbox One Guide by: [Franklin_Clinton](https://github.com/FranklinClintonDev).
+#### Xbox One Guide by: [Franklin_Clinton](https://github.com/FranklinClintonDev) and [Sorynx](https://github.com/Dbz9).
 #### Xbox One SDK by: [Sorynx](https://github.com/Dbz9).
 #### How to compile PS5/Xbox Series X (Gen 9) Shaders by: [juniorbros](https://github.com/satincult8) with help of [Swaglesh](https://github.com/swaglesh).
 #### How to run GTA VI June 2014 concept map by: [Franklin_Clinton](https://github.com/FranklinClintonDev), [dky4](https://github.com/dky4), [Nostalgen](https://github.com/Nostalgen), rollschuh2282 and [milliethompson](https://github.com/milliethompson/) also a big thanks to anyone in the community that helped create the patches.

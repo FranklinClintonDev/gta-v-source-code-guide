@@ -1,7 +1,30 @@
 # Grand Theft Auto V: Source Code Build Guide *For PC*
 
+<details>
+<summary><strong>Table of Contents</strong></summary>
+
+* [Requirements](#requirements)
+* [Installing the Toolset](#installing-the-toolset)
+* [Creating X:\ Drive](#creating-x-drive)
+* [Patching Source Code and Tools](#patching-source-code-and-tools)
+* [Building Executable](#building-executable)
+* [Patch the Game](#patch-the-game)
+  * [Set Permissions](#1-set-permissions)
+  * [Add Shaders](#2-add-shaders)
+  * [Add Scripts](#3-add-scripts)
+* [Building Shaders](#building-shaders)
+  * [How to Build Low Quality Shaders](#how-to-build-low-quality-shaders-optional)
+* [Building Game Scripts](#building-game-scripts)
+* [Patching Game Scripts](#patching-game-scripts)
+* [Running the Game](#running-the-game)
+* [How to use the RAG](#how-to-use-the-rag-optional-v2699-only)
+* [Controls and Launch Parameters](#controls-and-launch-parameters)
+
+</details>
+
 ## Requirements
 
+- Use separate, fresh copies of the source code for PC, PC Retail Patches, Xbox One, and PS4, as the patches may conflict with one another.
 - Latest Grand Theft Auto V Files from Steam, Epic Games or Rockstar Games Launcher
    - Cracked version do not work unless you watch [these steps.](#fix-cracked-game-copys-not-booting)    
 - GTAVSP.7z - Source Code  
@@ -42,7 +65,7 @@
      - Reinstall DirectX SDK (June 2010)
    - At `Help Improve the DirectX SDK` select `No, I would not like to participate`
 
-#### Helix-Core-Server
+#### Helix-Core-Server (optional only required for some tools)
 
    - Don't change the port
    - For path, just select any empty folder
@@ -71,7 +94,9 @@ Alternativly you can just change your drive letter of a a drive to X.
 5. Run `X:\gta5\src\dev_ng\setenv.bat`
 6. Copy all folders from [`dll_patches_x.zip`](GTA%20V%20-%20Source%20Code%20Patches/tools%20patch) to `X:\gta5\tools_ng\bin`, making sure to overwrite any existing files.
 
-## Building Game Binaries/Executable
+## Building Executable
+
+Check out [known issues for building the executable](Known-Issues.md#building-executable)
 
 1. Run `X:\gta5\src\dev_ng\game\VS_Project\load_sln_unity_2012.bat`
 
@@ -127,66 +152,64 @@ Alternativly you can just change your drive letter of a a drive to X.
 </div>
 
 7. Output folder is: `X:\gta5\titleupdate\` there you will find your compiled executable move it to your game directory.
+
 ## Patch the Game
 
 The game needs to be modified slightly to run the compiled build, as mentioned above.
 
-Set permissions:
-1. Move your game directory from the default Program Files directory to a custom location like desktop, so to avoid issues with admin restrictions or permission issues.
-2. Right-click on your gmame directory, turn off the "Read-Only" option, then press "Apply"
 
-#### - If you don't want to compile shaders:
-1. Open [`common.zip`](https://pixeldrain.com/u/vAvUVD8B) and extract the file.
-2. Copy the extracted common folder to your game directory.
+### 1. Set permissions:
+  1. Move your game directory from the default Program Files directory to a custom location like desktop, so to avoid issues with admin restrictions or permission issues.
+  2. Right-click on your gmame directory, turn off the "Read-Only" option, then press "Apply"
 
-#### - If you want to compile shaders follow [these steps](#building-shaders)
+### 2. Add shaders:
 
-#### - If you don't want to build scripts (Note: Retail patches do not support scripts):
-- 2699 Build:
-  1. Extract [`v2699 - 1.61 + Prebuild Scripts.7z`](https://pixeldrain.com/u/MMsym3kN).
-  2. Copy both files from this archive to the update folder in the game directory.
-- Retail Patched Build (v3407-3521):
-  1. Make sure you're using `update.rpf` and `update2.rpf` from version 3407 to 3521, or possibly some later versions.
+If you don't want to compile the shaders:
+  1. Open [`common.zip`](https://pixeldrain.com/u/vAvUVD8B) and extract the file.
+  2. Copy the extracted common folder to your game directory.
+---
+If you want to compile the shaders follow [these steps](#building-shaders)
 
-#### - If you want to build the scripts yourself (2699 Build Only):
-1. Extract [`v2699 - 1.61.7z`](https://pixeldrain.com/u/donYCsxq).
-2. Copy both files from this archive to the update folder in the game directory.
 
-## Fix cracked game copys not booting
+### 3. Add scripts:
 
-- Go to [`GTA V - PC Build Required Files/GTA V - Cracked Game Patch`](GTA%20V%20-%20PC%20Build%20Required%20Files/GTA%20V%20-%20Cracked%20Game%20Patch) folder  
-- Copy everything inside of it to your game folder.
+If you don't want to build the scripts (Note: Retail patches do not support scripts):
+   - 2699 Build:
+      1. Extract [`v2699 - 1.61 + Prebuild Scripts.7z`](https://pixeldrain.com/u/MMsym3kN).
+      2. Copy both files from this archive to the update folder in the game directory.
+   - Retail Patched Build (v3407-3521):
+      1. Make sure you're using `update.rpf` and `update2.rpf` from version 3407 to 3521, or possibly some later versions.
+---
+If you want to build the scripts yourself (2699 Build Only):
+   1. Extract [`v2699 - 1.61.7z`](https://pixeldrain.com/u/donYCsxq).
+   2. Copy both files from this archive to the update folder in the game directory.
+
 
 ## Building Shaders
+
+Check out [known issues for building shaders](Known-Issues.md#building-shaders)
 
 Optional: For multicore compilation, go to `X:\gta5\tools_ng\etc\RageShaderManager` and, in all .xml files, change every instance of `SingleCore=` to `"false"`.
 
 1. Run `X:\gta5\src\dev_ng\game\VS_Project\load_sln_unity_2012.bat`
 2. Under `Shaders`, right click the `shaders_rc` project and click `Build`
-
-- (OPTIONAL) Build low quality shaders
-  1. Right click the `shaders_rc` project and click `Properties`
-  2. Select `Configuration Properties > NMake`
-  3. Under `General`, change all command lines from ending with `win32_40.bat` to ending with `win32_40_lq.bat`, then click `Apply` and `OK`
-  4. Rebuild shaders and wait for it to finish
-
+---
+#### How to Build low quality shaders (optional)
+1. Right click the `shaders_rc` project and click `Properties`
+2. Select `Configuration Properties > NMake`
+3. Under `General`, change all command lines from ending with `win32_40.bat` to ending with `win32_40_lq.bat`, then click `Apply` and `OK`
+4. Rebuild shaders and wait for it to finish
+---
 To see the progress and watch its status, in the taskbar, open the Overflow Menu (the small ^ in the taskbar on the right).
 Find `IncrediBuild Agent` (the one with a green arrow), right-click it, and press `Build Monitor`.
 In `Build Monitor`, on the left press the icon at the top that should say `Progress`.
 You should now see what you're building, and at the bottom left of the window, you'll see a percentage of how complete it is out of 100%.
 
-3. Copy `X:\gta5\titleupdate\dev_ng\common` to game directory.
-
-#### Known errors:
-- If your VM or Computer start lagging, freezing or crashing when trying to build try this:
-  - Open `Incredibuild Agent Settings`
-  - Under `Visual Studio Builds` / `General` lower the `Max. number of CPU/Cores used for parallel linking`
-
-<div style="text-align:center;">
-<img src="IMG/09.png" alt="image" style="width:50%;">
-</div>
-
+3. Copy `X:\gta5\titleupdate\dev_ng\common` to the game directory.
+---
 ## Building Game Scripts
+
+Check out [known issues for building scripts](Known-Issues.md#building-scripts)
 
 #### Reminder: Scripts do not work with Retail patch 
 #### If your Incredibuild trail is over use [this](Extras/Incredibuild%20Crack/ReadMe.md).
@@ -255,83 +278,4 @@ EXENAME.exe -noSocialClub -nokeyboardhook -nonetlogs -rag -ragUseOwnWindow
 - [PC debug keyboard overview](GTA%20V%20-%20PC%20Build%20Required%20Files/GTA%20V%20-%20Source%20Code%20Build%20Controls/Source%20Code%20Build%20Controls/Keyboard_Overview.pdf)
 - [PC debug launch parameters](GTA%20V%20-%20PC%20Build%20Required%20Files/GTA%20V%20-%20Source%20Code%20Build%20Controls/Source%20Code%20Build%20Launch%20Parameters/LAUNCHPARAMS_GTAV.txt)
 - [PC retail launch parameters](GTA%20V%20-%20PC%20Build%20Required%20Files/GTA%20V%20-%20Source%20Code%20Build%20Controls/Normal%20Launch%20Parameters/Launch%20Parameters.md)
-
-## Other Known Issues
-
-### Fatal Error: Unable to create default effect 'common:/shaders/im', cannot continue.
-If u didn't put the shaders to the game directory or you dont have the low quality shaders, then this error may appear.<br>
-Just try these solutions in order to make the game work:
-
-##### Solution 1: 
-Just Simply Compile the low quality shaders by [following these steps](#building-shaders).
-
-##### Solution 2:
-Just make your shaders quality "High" and dont lower that.<br>
-To do this, Follow this steps:
-
-1. Go To **\Documents\Rockstar Games\GTA V**
-2. Open *settings.xml*
-3. Change  `<ShaderQuality value="0" />` To `<ShaderQuality value="1" />`
-4. Save the file and Done!
-
-### RagScriptEditor crashing while at building cache.
-- Try running `X:\gta5\src\dev_ng\All_In_One_Install_Environment_Variables.bat` and `X:\gta5\src\dev_ng\setenv.bat` again.
-- Change your Windows Language to `English (United States)`
-
-### Network Related Errors in Visual Studio (Optional)
-*ONLY DO THIS IF YOU REALLY HAVE NETWORK RELATED ISSUES THESE ARE RARE*
-
-1. Download the [Network Fix](GTA%20V%20-%20Source%20Code%20Patches/network%20fix%20(optional)).
-
-2. Find out your IPv4 Address:
-- **In Windows 11**: 
-  Settings → Network & Internet → Advanced Network Settings. Select the Network Adapter you're using and press **View Additional Properties**.  
-  Note down your IPv4 Address.
-
-- **In Windows 10**:  
-  Navigate to Settings → Network & Internet → Change Adapter Options. Select the Network Adapter you're using, right-click it, and press **Details**.  
-  Note down your IPv4 Address.
-
-3. Replace `PUT-IP-HERE` with your IPv4 Address in `studios.meta` and `rag.meta`
-4. Move `studios.meta` and `rag.meta` to `X:\gta5\tools_ng\etc\globals`
-
-### Error when compiling Active Solution Configuration Final
-
-```
-error C2065: 'overrideScriptRpfName': undeclared identifier
-error C2065: 'overrideDIcScriptRpfName': undeclared identifier
-error LNK1181: cannot open input file x:\gta5\src\dev_ng\objects\game3_lib_2012_unity\x64_Final\v110_xp\game3_lib.lib'
-```
-Solution grab a new `X:\gta5\src\dev_ng\game\scene\FileLoader.cpp` from `GTAVSP.7z` and replace with current one.
-  - Note that if a file gets a error while compiling do the same and grab one from `GTAVSP.7z` and replace it with the current one, but is not guaranteed that it may fixed the error.
-
-### Fixing DLL Loading Issues for Tools
-
-If a tool reports that a DLL file is missing, cannot be loaded, or any other dll related error, the DLL may simply be blocked by the Windows 11 zone information preservation feature.
-
-To fix it for one specific file:
-
-1. Navigate to the location of the DLL file.
-2. Right-click the DLL file and select **Properties**.
-3. In the **General** tab, look for the **Security** section at the bottom.
-4. If you see an **Unblock** checkbox, check it.
-5. Click **Apply**, then **OK**.
-6. Try using the tool again.
-
-Disbale the feature on all files from the X drive **(Recommended)**:
-
-1. Open PowerShell as Administrator and run :
-```
-Get-ChildItem "PATH TO YOUR gta5 FOLDER" -Recurse | Unblock-File   
-```
-
-You have to use the path to your `gta5` folder. It cannot include the virtual X: drive you need to use the path to the folder on your actual hard drive.
-
-In many cases, this resolves DLL loading errors caused by the Windows 11 zone information preservation feature.
-
-
-
-
-
-
 
