@@ -238,7 +238,7 @@ ragScriptEditor
 
 ## Running the game
 You need a `.bat` file to launch the game. This batch file is only required for v2699 Build and is optional for Retail Only v3407-3521 Build
- - The file is used to set [launch parameters](GTA%20V%20-%20PC%20Build%20Required%20Files/GTA%20V%20-%20Source%20Code%20Build%20Controls/Source%20Code%20Build%20Lauch%20Parameters/LAUNCHPARAMS_GTAV.txt).
+ - The file is used to set [launch parameters](GTA%20V%20-%20PC%20Build%20Required%20Files/GTA%20V%20-%20Source%20Code%20Build%20Controls/Source%20Code%20Build%20Launch%20Parameters/LAUNCHPARAMS_GTAV.txt).
  
 1. In the game directory, create a `.bat` and add these contents:
 
